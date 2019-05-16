@@ -1,0 +1,64 @@
+{% extends "boxy/base.html" %}
+
+{% block extrameta %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}
+
+{% block download_current %}class="current"{% endblock %}
+
+{% block contents %}
+<!-- Section -->
+  <section class="wrapper style1">
+    <div class="inner">
+      <header class="major special">
+        <h1>Benchmarks</h1>
+      </header>
+
+
+      <div class="spotlights">
+        <section>
+          {% load static %}
+          <div class="image"><img src="{% static "boxy/images/sample_annotation_1.png" %}" alt="" /></div>
+          <div class="content">
+            <header class="major">
+              <h3><a href="benchmark_2d">2D Detections</a></h3>
+            </header>
+            <p>Apply one of the best studied tasks in computer vision, 2D axes aligned bounding box detections in camera images, to vehicles for automated driving. See how far it is possible to take 2D detections on almost 2 million annotated vehicles. The benchmark is scored based on average precision. All kinds of approaches, external approaches, closed source, and any runtime are allowed. We may add benchmarks or metrics and welcome suggestions.
+            </p>
+        </section>
+
+        <section>
+          {% load static %}
+          <div class="image"><img src="{% static "boxy/images/truck_carrying_truck_annotated.png" %}" alt="" /></div>
+          <div class="content">
+            <header class="major">
+              <br /><br />
+              <h3><a href="benchmark_3d">3D / Polygon Detections</a></h3>
+            </header>
+            <p>Axes aligned 2D bounding boxes unfortunately often also contain neighboring lanes which is inconvient for behavior planning and sensor fusion. The 2D boxes also do not convey any orientation and size information. Splitting the annotation into the two visible sides of a vehicle offers far higher accuracy and additional information. This benchmark is scored on the average precision of the overall polygon, the sides, and rears of the vehicles.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          {% load static %}
+          <!-- TODO change image to something like a clock/embedded chip or something -->
+          <div class="image"><img src="{% static "boxy/images/truck_carrying_truck_annotated.png" %}" alt="" /></div>
+          <div class="content">
+            <header class="major">
+              <br /><br />
+              <h3><a href="benchmark_realtime">Realtime Detections</a></h3>
+            </header>
+            <p>Automated vehicles have to be able to react to objects in real-time and while they can track and predict vehicles over time, fast detections are essential. For this benchmark, we restrict the compute time to 50 ms per incoming image which allows to process 20 images a second. There are no restrictions on image input size, hardware, or software but they should be reported. Additional splits, e.g. based on computer power, are possible.
+            </p>
+          </div>
+        </section>
+      </div>
+
+
+    </div>
+  </section>
+
+{% endblock %}

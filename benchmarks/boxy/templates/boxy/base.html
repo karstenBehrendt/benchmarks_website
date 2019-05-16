@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+    <title>The Boxy Dataset</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    {% block extrameta %} {% endblock %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static "boxy/assets/css/main.css" %}" />
+    <link rel="shortcut icon" type="image/png" href="{% static 'boxy/images/favicon.ico' %}"/>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+        <section id="header" {% block index_header_class %}{% endblock %}>
+
+						<!-- Logo -->
+            <a href="index" class="logo">
+              {% load static %}
+              <div class="image"><img src="{% static "boxy/images/bosch_logo.png" %}" alt="BOSCH" style="width:40%; margin-top:20px" /></div>
+            </a>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+                  <li {% block index_current %}{% endblock %}><a href="index">Overview</a></li>
+									<li {% block benchmarks_current %}{% endblock %}>
+										<a href="benchmarks" class="icon fa-angle-down">Benchmarks</a>
+										<ul>
+											<li><a href="benchmark_2d">2D Boxes</a></li>
+											<li><a href="benchmark_3d">3D Boxes</a></li>
+											<li><a href="benchmark_realtime">Realtime Detections</a></li>
+										</ul>
+									</li>
+									<li {% block download_current %}{% endblock %}><a href="download">Download</a></li>
+									<li {% block contact_current %}{% endblock %}><a href="contact">Contact</a></li>
+								</ul>
+							</nav>
+
+					</section>
+
+				<!-- Banner -->
+        {% block banner %}
+        {% endblock %}
+
+        {% block contents %}
+        {% endblock %}
+
+				<!-- Footer -->
+					<section id="footer">
+						<p class="copyright">
+            &copy; 2019 The Boxy Dataset<br>
+            <a href="imprint">Imprint</a>
+						</p>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+      {% load static %}
+      <script src="{% static "boxy/assets/js/jquery.min.js" %}"></script>
+      {% load static %}
+      <script src="{% static "boxy/assets/js/jquery.dropotron.min.js" %}"></script>
+      {% load static %}
+      <script src="{% static "boxy/assets/js/jquery.scrollex.min.js" %}"></script>
+      {% load static %}
+      <script src="{% static "boxy/assets/js/jquery.scrolly.min.js" %}"></script>
+      {% load static %}
+      <script src="{% static "boxy/assets/js/browser.min.js" %}"></script>
+      {% load static %}
+      <script src="{% static "boxy/assets/js/breakpoints.min.js" %}"></script>
+      {% load static %}
+      <script src="{% static "boxy/assets/js/util.js" %}"></script>
+      {% load static %}
+      <script src="{% static "boxy/assets/js/main.js" %}"></script>
+
+      <!-- Piwik -->
+  <script type="text/javascript">
+      var _paq = _paq || [];
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://karottika.de/piwik/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "13"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+  </script>
+  <!-- End Piwik Code -->
+
+  <noscript>
+    <!-- Piwik Image Tracker -->
+    <img src="https://karottika.de/piwik/piwik.php?idsite=13&amp;rec=1" style="border:0" alt="" />
+    <!-- End Piwik -->
+  </noscript>
+
+	</body>
+</html>

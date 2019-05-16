@@ -1,0 +1,93 @@
+{% extends "boxy/base.html" %}
+
+{% block extrameta %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+
+{% block index_header_class %}class="alt"{% endblock %}
+{% block index_current %}class="current"{% endblock %}
+
+{% block banner %}
+  <section id="banner">
+    <div class="content">
+      <header class="major special">
+        <h1><b>boxy</b><br></h1>
+      </header>
+      <ul class="actions special">
+        <li><a href="#first" class="button primary wide scrolly">Overview</a></li>
+      </ul>
+    </div>
+  </section>
+{% endblock %}
+
+
+{% block contents %}
+<!-- Section -->
+  <section class="wrapper style1" id="first">
+    <div class="inner">
+      <header class="major special">
+        <h2>The Boxy Vehicles Dataset</h2>
+        <p>A large dataset of almost two million annotated vehicles<br />
+        for training and evaluating object detection methods.</p>
+      </header>
+      <div class="spotlights">
+        <section>
+          {% load static %}
+          <div class="image"><img src="{% static "boxy/images/sample_annotation_1.png" %}" alt="" /></div>
+          <div class="content">
+            <header class="major">
+              <h3>Quick specs:</h3>
+            </header>
+            <p><ul>
+              <li>200,000 images</li>
+              <li>1,990,000 annotated vehicles</li>
+              <li>5 Megapixel resolution </li>
+              <li>Sunshine, rain, dusk, night</li>
+              <li>Clear freeways, heavy traffic, traffic jams</li>
+            </ul><br /></p>
+        </section>
+        <section>
+          {% load static %}
+          <div class="image"><img src="{% static "boxy/images/truck_carrying_truck_annotated.png" %}" alt="" /></div>
+          <div class="content">
+            <header class="major">
+              <br /><br />
+              <h3>2D boxes or 3D cuboids for vehicles</h3>
+            </header>
+            <p>Axis-aligned bounding boxes (AABB) and trapezoids for a more accurate description. <br>
+            Simple AABB may intrude into neighboring lanes, as shown on the right. </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+<!-- Section -->
+  <section class="wrapper style2 alt">
+    <div class="inner">
+      <header class="major special">
+        <h2>Modern Vehicle Detection</h2>
+        <p>Which method do you choose? What do you focus on?<br />
+        High accuracy, low memory usage, low computational complexity, realtime detections, embedded systems,...</p>
+        <iframe width="800" height="450" src="https://www.youtube.com/embed/8kwvPJczhd4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </header>
+      <div class="features">
+      </div>
+    </div>
+  </section>
+
+<!-- Section -->
+  <section class="wrapper style1">
+    <div class="inner">
+      <header class="major special alt">
+        <h2>Your Research</h2>
+        <p>Try our benchmarks, use the data to train a classifier, use it for domain transfer, or create new metrics. </br>
+        We do encourage new benchmarks, let us know if additional data (e.g. odometry information) would be useful, and feel free to extend the dataset's scripts on Github.</p>
+      </header>
+      {% include "boxy/citation.html" %}
+      <ul class="actions special">
+        <li><a href="download" class="button primary wide">Download</a></li>
+      </ul>
+    </div>
+  </section>
+{% endblock %}

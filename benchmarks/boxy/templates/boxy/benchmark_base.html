@@ -1,0 +1,47 @@
+{% extends "boxy/base.html" %}
+
+{% block extrameta %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+
+{% block download_current %}class="current"{% endblock %}
+
+{% block contents %}
+<!-- Section -->
+  <section class="wrapper style1">
+    <div class="inner">
+      <header class="major special">
+        <h2 style="color: red;"> Benchmark results and baselines are not public yet </h2>
+        <h1>{{ benchmark_name }}</h1>
+        <p>{{ benchmark_short }}</p>
+      </header>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+{% for key in keys %}
+              <th>{{ key }}</th>
+{% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+
+{% for result in results %}
+    <tr>
+	{% for key, val in result.items %}
+			<td class="{{ key }}">{{ val }}</td>
+	{% endfor %}
+    </tr>
+{% endfor %}
+
+          </tbody>
+        </table>
+      </div><!-- table-wrapper -->
+
+
+    </div>
+  </section>
+
+{% endblock %}

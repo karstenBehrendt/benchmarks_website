@@ -1,0 +1,105 @@
+{% extends "llamas/base.html" %}
+
+{% block extrameta %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+
+{% block index_header_class %}class="alt"{% endblock %}
+{% block index_current %}class="current"{% endblock %}
+
+{% block banner %}
+  <section id="banner">
+    <div class="content">
+      <header class="major special">
+        <h1><b>Unsupervised Llamas</b><br />
+		The unsupervised <b>l</b>abeled <b>la</b>ne <b>ma</b>rker<b>s</b> dataset</h1>
+      </header>
+      <ul class="actions special">
+        <li><a href="#first" class="button primary wide scrolly">Overview</a></li>
+      </ul>
+    </div>
+  </section>
+{% endblock %}
+
+
+{% block contents %}
+<!-- Section -->
+  <section class="wrapper style1" id="first">
+    <div class="inner">
+      <header class="major special">
+        <h2>The Lane Marker Dataset</h2>
+        <p>Automatically annotated lane markers using Lidar maps.</p>
+      </header>
+      <div class="spotlights">
+        <section>
+          {% load static %}
+          <div class="image"><img src="{% static "llamas/images/ryans_marker_image.png" %}" alt="" /></div>
+          <div class="content">
+            <header class="major">
+              <h3>Quick specs:</h3>
+            </header>
+            <p><ul>
+              <li>Over 100,000 annotated images</li>
+              <li>Annotations of over 100 meters</li>
+              <li>Resolution of 1276 x 717 pixels</li>
+            </ul><br /></p>
+        </section>
+
+        <section>
+          {% load static %}
+          <div class="image"><img src="{% static "llamas/images/binary_overlay.png" %}" alt="" /></div>
+          <div class="content">
+            <header class="major">
+              <br /><br />
+              <h3>A Segmentation Challenge</h3>
+            </header>
+            <p>Lane markers are tricky to annotate because of their median width of only 12 cm. At farther distances, the number of pixels gets very sparse and the markers start to blend with the asphalt in the camera image.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          {% load static %}
+          <div class="image"><img src="{% static "llamas/images/splines.png" %}" alt="" /></div>
+          <div class="content">
+            <header class="major">
+              <br /><br />
+              <h3>Lane Approximations</h3>
+            </header>
+            <p>While pixel-level segmentation can be very useful for localization, some automated driving systems benefit from higher level representations such as splines, clothoids, or polynomials. This section of the dataset allows for evaluating existing and novel techniques.
+            </p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </section>
+<!-- Section -->
+  <section class="wrapper style2 alt">
+    <div class="inner">
+      <header class="major special">
+        <h2>Automated Annotations</h2>
+        <p>The Unsupervised Llamas dataset was annotated by creating high definition maps for automated driving including lane markers based on Lidar. The automated vehicle can be localized against these maps and the lane markers are projected into the camera frame. The 3D projection is optimized by minimizing the difference between already detected markers in the image and projected ones. Further improvements can likely be achieved by using better detectors, optimizing difference metrics, and adding some temporal consistency. Dataset samples are shown in the video below.</p>
+        <iframe width="800" height="450" src="https://www.youtube.com/embed/kp0qz8PuXxA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </header>
+      <div class="features">
+      </div>
+    </div>
+  </section>
+
+<!-- Section -->
+  <section class="wrapper style1">
+    <div class="inner">
+      <header class="major special alt">
+        <h2>Your Research</h2>
+        <p>Try our benchmarks, use the data to train your own segmentation, lane detection, or create new metrics. </br>
+        We do encourage new benchmark suggestions. Let us know if additional data (e.g. odometry information, steering wheel angle) would be useful, and feel free to extend the dataset's scripts on Github.</p>
+      </header>
+      {% include "llamas/citation.html" %}
+      <ul class="actions special">
+        <li><a href="download" class="button primary wide">Download</a></li>
+      </ul>
+    </div>
+  </section>
+{% endblock %}

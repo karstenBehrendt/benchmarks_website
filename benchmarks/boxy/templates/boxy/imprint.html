@@ -1,0 +1,26 @@
+{% extends "boxy/base.html" %}
+
+{% block extrameta %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+
+{% block contents %}
+<!-- Section -->
+  <section class="wrapper style1">
+    <div class="inner">
+
+      <section><!-- noname -->
+          <div class="content">
+              {% load static %}
+              {% include "benchmarks/imprint_short.html" %}
+              {% include "benchmarks/terms.html" %}
+              {% include "benchmarks/gdpr.html" %}
+
+          </div> <!-- content -->
+      </section><!-- noname -->
+
+    </div><!-- inner -->
+  </section><!-- Wrapper style1 -->
+
+{% endblock %}

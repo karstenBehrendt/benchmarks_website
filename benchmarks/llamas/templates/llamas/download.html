@@ -1,0 +1,55 @@
+{% extends "llamas/base.html" %}
+
+{% block extrameta %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}
+
+{% block download_current %}class="current"{% endblock %}
+
+{% block contents %}
+<!-- Section -->
+  <section class="wrapper style1">
+    <div class="inner">
+      <header class="major special">
+        <h1>Download</h1>
+      </header>
+      <h3>Dataset Use</h3>
+      {% load static %}
+      <p>The dataset is published for research purposes. It is for non-commercial usage only, attribution is required, there are no warranties or liability. with the complete license <a href="{% static "lamas/non_commercial_license.pdf" %}">here</a>.</p>
+
+<h3>Download Form</h3>
+{{ form_error }}
+<form method="post" action="download" class="alt">{% csrf_token %}
+	<div class="row gtr-uniform">
+		<div class="col-6 col-12-xsmall">
+      <input type="text" name="downloader-name" id="downloader-name" value="{{ form_name}}" placeholder="Name" />
+		</div>
+		<br>
+		<div class="col-6 col-12-xsmall">
+      <input type="email" name="email" id="email" value="{{form_email}}" placeholder="Email" />
+		</div>
+		<br>
+		<div class="col-6 col-12-small">
+			<input type="checkbox" id="license" name="license">
+      {% load static %}
+      <label for="license">I accept the terms and <a href="{% static "lamas/non_commercial_license.pdf" %}">dataset license</a></label>
+		</div>
+		<br>
+		<div class="col-6 col-12-small">
+      <div class="g-recaptcha" data-sitekey="6LfCS20UAAAAAGfOFb3llx-MXWsRWdVRxMAEmEPs"></div>
+		</div>
+		<br>
+		<div class="col-12">
+			<ul class="actions">
+				<li><input type="submit" value="Get Download Links" /></li>
+			</ul>
+		</div>
+	</div>
+</form>
+    </div>
+
+  </section>
+
+{%endblock %}

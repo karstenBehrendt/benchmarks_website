@@ -1,0 +1,40 @@
+{% extends "llamas/base.html" %}
+
+{% block extrameta %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+
+{% block contact_current %}class="current"{% endblock %} <!-- TODO change current -->
+
+{% block contents %}
+<!-- Section -->
+  <section class="wrapper style1">
+    <div class="inner">
+
+      <section><!-- noname -->
+          <div class="content">
+
+        <h3>Contact</h3>
+        <p>
+          <ul class="alt">
+            <li>For technical questions on how to train models and use the dataset, please try Stackoverflow.</li>
+            <li>For issues with the dataset, feel free to use the Github issue tracker.</li> <!-- Add link -->
+            <li>For any other question, feel free to reach out to Karsten Behrendt at firstname.lastname@us.bosch.com </li>
+          </ul>
+        </p>
+      {% include "benchmarks/bosch_banner.html" %}
+      {% include "llamas/citation.html" %}
+      <h3>Privacy</h3>
+      The dataset is published for research purposes and non-commercial usage only. If you find yourself in the data, let us know and we will remove those images.
+
+
+
+
+          </div> <!-- content -->
+      </section><!-- noname -->
+
+    </div><!-- inner -->
+  </section><!-- Wrapper style1 -->
+
+{% endblock %}

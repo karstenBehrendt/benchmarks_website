@@ -1,0 +1,52 @@
+// Misc.
+	$misc: (
+		z-index-base:		10000
+	);
+
+// Duration.
+	$duration: (
+		menu:				0.5s,
+		transition:			0.2s
+	);
+
+// Size.
+	$size: (
+		element-height:		3.5rem,
+		element-margin:		2rem,
+		border-radius:		6px,
+		wrapper-pad:		(
+			default:		8rem,
+			large:			6rem,
+			small:			4rem,
+		)
+	);
+
+// Font.
+	$font: (
+		family:				('IBM Plex Sans', Helvetica, sans-serif),
+		family-fixed:		('Courier New', monospace),
+		weight:				200,
+		weight-bold:		400
+	);
+
+// Palette.
+	$palette: (
+		bg-alt:				#333333,
+		bg:					#ffffff,
+		fg:					#000000,
+		fg-bold:			#000000,
+		fg-light:			#000000,
+		border:				rgba(0,0,0,0.125),
+		border-bg:			rgba(0,0,0,0.05),
+		accent1:			#31d79b,
+		accent2:			#4b76eb,
+
+		invert: (
+			bg:				#3a3a3a,
+			fg:				#ffffff,
+			fg-bold:		#ffffff,
+			fg-light:		rgba(255,255,255,0.5),
+			border:			#ffffff,
+			border-bg:		rgba(255,255,255,0.05)
+		)
+	);

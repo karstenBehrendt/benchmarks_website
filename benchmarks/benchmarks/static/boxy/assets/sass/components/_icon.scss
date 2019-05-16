@@ -1,0 +1,87 @@
+///
+/// Hyperbolic by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Icon */
+
+	.icon {
+		@include icon;
+		border-bottom: none;
+		outline: 0;
+		position: relative;
+
+		> .label {
+			display: none;
+		}
+
+		&.alt {
+			font-size: 1.5rem;
+
+			&:before {
+				border-radius: 100%;
+				border: solid 2px;
+				display: inline-block;
+				text-align: center;
+				width: 4.5rem;
+				height: 4.5rem;
+				line-height: 4.5rem;
+			}
+		}
+
+		&.major {
+			display: block;
+			margin: 0 0 (_size(element-margin) * 0.75) 0;
+		}
+
+		@include breakpoint('<=large') {
+			&.alt {
+				font-size: 1.25rem;
+
+				&:before {
+					width: 4rem;
+					height: 4rem;
+					line-height: 4rem;
+				}
+			}
+		}
+
+		@include breakpoint('<=small') {
+			&.alt {
+				font-size: 1rem;
+
+				&:before {
+					width: 3rem;
+					height: 3rem;
+					line-height: 3rem;
+				}
+			}
+		}
+	}
+
+	@mixin color-icon($p: null) {
+		a.icon {
+			&.alt {
+				&:before {
+					@include vendor('transition', (
+						'background-color #{_duration(transition)} ease-in-out'
+					));
+				}
+
+				&:hover {
+					&:before {
+						background-color: _palette($p, border-bg);
+					}
+				}
+
+				&:active {
+					&:before {
+						background-color: opacify(_palette($p, border-bg), 0.125);
+					}
+				}
+			}
+		}
+	}
+
+	@include color-icon;

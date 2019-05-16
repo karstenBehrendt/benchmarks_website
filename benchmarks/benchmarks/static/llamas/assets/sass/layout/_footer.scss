@@ -1,0 +1,36 @@
+///
+/// Hyperbolic by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Footer */
+
+	#footer {
+		$wrapper-pad: _size(wrapper-pad, default);
+
+		@include color-typography(invert);
+		@include color-icon(invert);
+		@include curve-before-alt;
+		@include padding($wrapper-pad, 0);
+		background-attachment: fixed, fixed;
+		background-image: linear-gradient(90deg, #{transparentize(_palette(invert, bg), 0.4)}, #{transparentize(_palette(invert, bg), 0.4)}), url('../../images/banner.jpg');
+		background-position: center, center;
+		background-repeat: repeat, no-repeat;
+		background-size: auto, cover;
+		position: relative;
+		text-align: center;
+
+		@include breakpoint('<=large') {
+			$wrapper-pad: _size(wrapper-pad, large);
+
+			@include padding($wrapper-pad, 0);
+			background-attachment: scroll, scroll;
+		}
+
+		@include breakpoint('<=small') {
+			$wrapper-pad: _size(wrapper-pad, small);
+
+			@include padding($wrapper-pad, 0);
+		}
+	}

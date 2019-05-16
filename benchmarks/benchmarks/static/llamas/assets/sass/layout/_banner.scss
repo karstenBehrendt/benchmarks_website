@@ -1,0 +1,96 @@
+///
+/// Hyperbolic by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Banner */
+
+	#banner {
+		$wrapper-pad: _size(wrapper-pad, default);
+
+		@include color-button(invert);
+		@include color-typography(invert);
+		@include curve-after;
+		@include padding($wrapper-pad * 1.25, 0);
+		@include vendor('align-items', 'center');
+		@include vendor('display', 'flex');
+		@include vendor('justify-content', 'center');
+		background-attachment: fixed, fixed;
+		background-image: linear-gradient(90deg, #{transparentize(_palette(invert, bg), 0.4)}, #{transparentize(_palette(invert, bg), 0.4)}), url('../../images/banner.jpg');
+		background-position: center, center;
+		background-repeat: repeat, no-repeat;
+		background-size: auto, cover;
+		min-height: calc(75vh + #{_size(element-height) * 2});
+		position: relative;
+		text-align: center;
+
+		&:before {
+			@include vendor('pointer-events', 'none');
+			@include vendor('transition', 'opacity 2s ease-in-out 0.75s');
+			background: _palette(bg-alt);
+			content: '';
+			height: 100%;
+			left: 0;
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+
+		> .content {
+			@include vendor('transition', (
+				'transform 1s ease-in-out',
+				'opacity 1.25s ease-in-out'
+			));
+			position: relative;
+			z-index: 1;
+
+			> :last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		body.is-preload & {
+			&:before {
+				opacity: 1;
+			}
+
+			> .content {
+				@include vendor('transform', 'translateY(0.75rem)');
+				opacity: 0;
+			}
+		}
+
+		@include breakpoint('<=large') {
+			$wrapper-pad: _size(wrapper-pad, large);
+
+			@include padding($wrapper-pad * 1.25, 0);
+			background-attachment: scroll, scroll;
+		}
+
+		@include breakpoint('<=medium') {
+			$wrapper-pad: _size(wrapper-pad, large);
+
+			@include padding($wrapper-pad * 1.25, $wrapper-pad);
+		}
+
+		@include breakpoint('<=small') {
+			$wrapper-pad: _size(wrapper-pad, small);
+
+			@include padding($wrapper-pad * 2, $wrapper-pad * 0.5);
+			min-height: 0;
+		}
+
+		@include breakpoint('<=xsmall') {
+			$wrapper-pad: _size(wrapper-pad, small);
+
+			@include padding($wrapper-pad * 2.5, $wrapper-pad * 0.5);
+		}
+
+		@include breakpoint('<=xsmall') {
+			br {
+				display: none;
+			}
+		}
+	}

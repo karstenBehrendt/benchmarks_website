@@ -1,0 +1,6 @@
+captcha
+Django
+django-simple-captcha
+django-recaptcha
+requests
+

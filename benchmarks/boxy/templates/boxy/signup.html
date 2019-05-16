@@ -1,0 +1,41 @@
+{% extends "boxy/base.html" %}
+
+{% block extrameta %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}
+
+{% block download_current %}class="current"{% endblock %}
+
+{% block contents %}
+
+<section class="wrapper style1">
+	<div class="inner">
+		<h2>{{ form_name }}</h2>
+		{% load static %}
+		<p>The dataset is published for research purposes. It is for non-commercial usage only, attribution is required, there are no warranties or liability. with the complete license <a href="{% static "boxy/non_commercial_license.pdf" %}">here</a>.</p>
+		{{ error }}
+		<p>
+		<form method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+
+			{# workaround to get "label for" checkbox instead of default form booleanfield #}
+			{% if form_name == "Register" %}
+			<div class="col-6 col-12-small">
+				<input type="checkbox" id="license" name="license">
+				{% load static %}
+				<label for="license">I accept the terms and <a href="{% static "boxy/non_commercial_license.pdf" %}">dataset license</a></label>
+			</div>
+			{% endif %}
+
+			<button type="submit">{{ form_name }}</button>
+		</form>
+		</p>
+
+	</div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "llamas/base.html" %}
+
+{% block extrameta %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}
+
+{% block download_current %}class="current"{% endblock %}
+
+{% block contents %}
+<!-- Section -->
+  <section class="wrapper style1">
+    <div class="inner">
+      <header class="major special">
+        <h1>Benchmarks</h1>
+      </header>
+
+
+      <div class="spotlights">
+        <section>
+          {% load static %}
+          <div class="image"><img src="{% static "llamas/images/binary_overlay.png" %}" alt="" /></div>
+          <div class="content">
+            <header class="major">
+              <h3><a href="benchmark_binary">Binary Segmentation</a></h3>
+            </header>
+            <p>The binary segmentation benchmark takes an input images of 1276x717 and then rates models based on average precision. It allows the use of external data, gray or color inputs, any runtime, and any method. We may create additional benchmarks, splits, and rankings based on different metrics, such as runtime, if we get enough submissions.
+            </p>
+        </section>
+
+        <section>
+          {% load static %}
+          <div class="image"><img src="{% static "llamas/images/ryans_marker_image.png" %}" alt="" /></div>
+          <div class="content">
+            <header class="major">
+              <br /><br />
+              <h3><a href="benchmark_mutli">Lane Based Segmentation</a></h3>
+            </header>
+            <p>In addition to the lane marker segmentation, the individual pixels are assigned a lane relative to the vehicle's current position, e.g. same lane, left. Train models end-to-end, classify by region or density, etc. There are lots of possible methods- for use in automated vehicles, they have to run in real-time.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          {% load static %}
+          <div class="image"><img src="{% static "llamas/images/splines.png" %}" alt="" /></div>
+          <div class="content">
+            <header class="major">
+            <br /><br />
+              <h3><a href="splines">Lane Approximations</a></h3>
+            </header>
+            <p>Instead of classifying individual pixels, the goal in this benchmark is to approximate the individual lane edges as curves. This can be done using a point for each row, polylines, polynomials, clothoids, or splines. Those curves can be calculated using end-to-end models, curve fitting on the segmentation, density clustering, line following, walker based approaches, line fitting, and many more.
+            </p>
+          </div>
+        </section>
+      </div>
+
+
+    </div>
+  </section>
+
+{% endblock %}

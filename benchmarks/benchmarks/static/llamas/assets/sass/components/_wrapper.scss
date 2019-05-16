@@ -1,0 +1,54 @@
+///
+/// Hyperbolic by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Wrapper */
+
+	.wrapper {
+		$wrapper-pad: _size(wrapper-pad, default);
+
+		@include padding($wrapper-pad, 0);
+		position: relative;
+
+		> .inner {
+			margin: 0 auto;
+			width: 75rem;
+			max-width: calc(100% - #{$wrapper-pad});
+		}
+
+		&.style1 {
+			background-color: _palette(bg);
+		}
+
+		&.style2 {
+			@include color(invert);
+			@include gradient-background;
+
+			&.alt {
+				@include curve-after;
+				@include curve-before;
+			}
+		}
+
+		@include breakpoint('<=large') {
+			$wrapper-pad: _size(wrapper-pad, large);
+
+			@include padding($wrapper-pad, 0);
+
+			> .inner {
+				max-width: calc(100% - #{$wrapper-pad});
+			}
+		}
+
+		@include breakpoint('<=small') {
+			$wrapper-pad: _size(wrapper-pad, small);
+
+			@include padding($wrapper-pad, 0);
+
+			> .inner {
+				max-width: calc(100% - #{$wrapper-pad});
+			}
+		}
+	}
