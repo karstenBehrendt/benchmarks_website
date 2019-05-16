@@ -1,0 +1,6 @@
+Disable directory listing for fresh webserver. Looking at you apache.
+
+Set BENCHMARK_KEY in /etc/profile
+
+Restart uwsgi (note yet daemonized)
+ pkill -f uwsgi & uwsgi --ini benchmarks_uwsgi.ini 
