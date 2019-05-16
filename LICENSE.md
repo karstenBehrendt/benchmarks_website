@@ -1,5 +1,6 @@
 The website template is from https://pixelarity.com/hyperbolic. Before deploying
 or using it, please make sure you purchased the correct usage rights.
+The website template license can be found at pixelarity.com/license 
 Everything outside that template CSS, HTML, Javascript, etc. falls under
 the license below.
 
