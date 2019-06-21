@@ -18,7 +18,7 @@
         <section id="header" {% block index_header_class %}{% endblock %}>
 
 						<!-- Logo -->
-            <a href="index" class="logo">
+            <a href="/boxy/index" class="logo">
               {% load static %}
               <div class="image"><img src="{% static "boxy/images/bosch_logo.png" %}" alt="BOSCH" style="width:40%; margin-top:20px" /></div>
             </a>
@@ -26,17 +26,17 @@
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
-                  <li {% block index_current %}{% endblock %}><a href="index">Overview</a></li>
+                  <li {% block index_current %}{% endblock %}><a href="/boxy/index">Overview</a></li>
 									<li {% block benchmarks_current %}{% endblock %}>
-										<a href="benchmarks" class="icon fa-angle-down">Benchmarks</a>
+										<a href="/boxy/benchmarks" class="icon fa-angle-down">Benchmarks</a>
 										<ul>
-											<li><a href="benchmark_2d">2D Boxes</a></li>
-											<li><a href="benchmark_3d">3D Boxes</a></li>
-											<li><a href="benchmark_realtime">Realtime Detections</a></li>
+											<li><a href="/boxy/benchmark_2d">2D Boxes</a></li>
+											<li><a href="/boxy/benchmark_3d">3D Boxes</a></li>
+											<li><a href="/boxy/benchmark_realtime">Realtime Detections</a></li>
 										</ul>
 									</li>
-									<li {% block download_current %}{% endblock %}><a href="download">Download</a></li>
-									<li {% block contact_current %}{% endblock %}><a href="contact">Contact</a></li>
+									<li {% block download_current %}{% endblock %}><a href="/boxy/download">Download</a></li>
+									<li {% block contact_current %}{% endblock %}><a href="/boxy/contact">Contact</a></li>
 								</ul>
 							</nav>
 
@@ -53,7 +53,7 @@
 					<section id="footer">
 						<p class="copyright">
             &copy; 2019 The Boxy Dataset<br>
-            <a href="imprint">Imprint</a>
+            <a href="/boxy/imprint">Imprint</a>
 						</p>
 					</section>
 
