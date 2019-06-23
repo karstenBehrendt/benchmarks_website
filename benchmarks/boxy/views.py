@@ -7,10 +7,16 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 
 from django.shortcuts import redirect
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.template import loader
 
 from captcha.fields import ReCaptchaField
+
+
+def bad_request(request, exception, template_name="boxy/404.html"):
+    response = render_to_response("boxy/404.html")
+    response.status_code = 404
+    return response
 
 
 def index(request):
