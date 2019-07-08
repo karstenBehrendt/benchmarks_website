@@ -1,9 +1,39 @@
 {% extends "llamas/base.html" %}
+<!-- Add some more content for search engines -->
 
 {% block extrameta %}
-<meta name="description" content="" />
-<meta name="keywords" content="" />
+<meta name="description" content="The unsupervised llamas dataset is an automatically annotated lane marker dataset using high definition maps. It contains over 100,000 images with pixel level, dashed markers and 3D lines." />
+<meta name="keywords" content="Lane markers,lane marker dataset,semantic segmentation,computer vision,autonomous driving" />
+
+<!-- Add citation and identifier -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org/",
+  "@type":"Dataset",
+  "name":"Unsupervised LLAMAS Lane Marker Dataset",
+  "description":"The Unsupervised LLAMAS lane marker dataset was created by projecting lane marker mas into camera images and optimizing the projection using features in the image. It consists of over 100,000 images with dashed markers, pixel segmentation, and 3D lines.",
+  "url":"https://unsupervised-llamas.com",
+  "keywords":[
+     "Lane marker dataset",
+     "Computer vision",
+     "Semantic segmentation"
+  ],
+  "creator":{
+     "@type":"Organization",
+     "url": "https://www.bosch.com/"
+  },
+  "distribution":[
+     {
+        "@type":"DataDownload",
+        "encodingFormat":"png, json",
+        "contentUrl":"http://unsupervised-llamas.com/llamas/download"
+     }
+  ],
+  "temporalCoverage":"2017"
+}
+</script>
 {% endblock %}
+
 
 {% block index_header_class %}class="alt"{% endblock %}
 {% block index_current %}class="current"{% endblock %}

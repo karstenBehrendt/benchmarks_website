@@ -1,8 +1,39 @@
 {% extends "boxy/base.html" %}
+<!-- Add some more content for search engines -->
 
 {% block extrameta %}
-<meta name="description" content="" />
-<meta name="keywords" content="" />
+<meta name="description" content="The Boxy dataset contains 2 million annotated vehicles for object detection in 200,000 images." />
+<meta name="keywords" content="Boxy,vehicle detection,object detection,computer vision,autonomous driving" />
+
+<!-- Add citation and identifier -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org/",
+  "@type":"Dataset",
+  "name":"Boxy Vehicle Dataset",
+  "description":"The Boxy dataset contains almost 2 million annotated vehicles for object detection in 200,000 images.",
+  "url":"https://boxy-dataset.com",
+  "keywords":[
+     "Vehicle detection dataset",
+     "Computer vision",
+     "Automated driving",
+     "Object detection"
+  ],
+  "creator":{
+     "@type":"Organization",
+     "url": "https://www.bosch.com/"
+  },
+  "distribution":[
+     {
+        "@type":"DataDownload",
+        "encodingFormat":"png, json",
+        "contentUrl":"http://boxy-dataset.com/boxy/download"
+     }
+  ],
+  "temporalCoverage":"2016"
+}
+</script>
+
 {% endblock %}
 
 {% block index_header_class %}class="alt"{% endblock %}
