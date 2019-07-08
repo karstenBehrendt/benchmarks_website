@@ -2,6 +2,7 @@
 <!-- Add some more content for search engines -->
 
 {% block extrameta %}
+<title>Unsupervised Llamas Lane Marker Dataset</title>
 <meta name="description" content="The unsupervised llamas dataset is an automatically annotated lane marker dataset using high definition maps. It contains over 100,000 images with pixel level, dashed markers and 3D lines." />
 <meta name="keywords" content="Lane markers,lane marker dataset,semantic segmentation,computer vision,autonomous driving" />
 
@@ -65,7 +66,7 @@
       <div class="spotlights">
         <section>
           {% load static %}
-          <div class="image"><img src="{% static "llamas/images/ryans_marker_image.png" %}" alt="" /></div>
+          <div class="image"><img src="{% static "llamas/images/ryans_marker_image.png" %}" alt="Sample lane marker annotation" /></div>
           <div class="content">
             <header class="major">
               <h3>Quick specs:</h3>
@@ -79,7 +80,7 @@
 
         <section>
           {% load static %}
-          <div class="image"><img src="{% static "llamas/images/binary_overlay.png" %}" alt="" /></div>
+          <div class="image"><img src="{% static "llamas/images/binary_overlay.png" %}" alt="Sample binary lane marker label" /></div>
           <div class="content">
             <header class="major">
               <br /><br />
@@ -92,7 +93,7 @@
 
         <section>
           {% load static %}
-          <div class="image"><img src="{% static "llamas/images/splines.png" %}" alt="" /></div>
+          <div class="image"><img src="{% static "llamas/images/splines.png" %}" alt="Sample lane marker curves" /></div>
           <div class="content">
             <header class="major">
               <br /><br />

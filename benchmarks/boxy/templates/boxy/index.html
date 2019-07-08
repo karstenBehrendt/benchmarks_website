@@ -2,8 +2,9 @@
 <!-- Add some more content for search engines -->
 
 {% block extrameta %}
-<meta name="description" content="The Boxy dataset contains 2 million annotated vehicles for object detection in 200,000 images." />
-<meta name="keywords" content="Boxy,vehicle detection,object detection,computer vision,autonomous driving" />
+<title>The Boxy Vehicle Detection Dataset</title>
+<meta name="description" content="The Boxy dataset contains 2 million annotated vehicles for object detection in 200,000 images for self-driving cars on freeways." />
+<meta name="keywords" content="Boxy,vehicle detection,object detection,computer vision,autonomous driving,vehicle dataset" />
 
 <!-- Add citation and identifier -->
 <script type="application/ld+json">
@@ -43,7 +44,7 @@
   <section id="banner">
     <div class="content">
       <header class="major special">
-        <h1><b>boxy</b><br></h1>
+        <h1><b>Boxy</b><br></h1>
       </header>
       <ul class="actions special">
         <li><a href="#first" class="button primary wide scrolly">Overview</a></li>
@@ -59,14 +60,14 @@
     <div class="inner">
       <header class="major special">
         <h2>The Boxy Vehicles Dataset</h2>
-        <p>A large dataset of almost two million annotated vehicles<br />
-	for training and evaluating object detection methods.<br />
+        <p>A large vehicle detection dataset with almost two million annotated vehicles<br />
+	for training and evaluating object detection methods for self-driving cars on freeways..<br />
 	<a href="https://github.com/karstenBehrendt/boxy">Dataset Code</a> --- <a href="https://github.com/karstenBehrendt/benchmarks_website"> Website Code </a></p>
       </header>
       <div class="spotlights">
         <section>
           {% load static %}
-          <div class="image"><img src="{% static "boxy/images/sample_annotation_1.png" %}" alt="" /></div>
+          <div class="image"><img src="{% static "boxy/images/sample_annotation_1.png" %}" alt="Boxy sample vehicle labels" /></div>
           <div class="content">
             <header class="major">
               <h3>Quick specs:</h3>
@@ -81,7 +82,7 @@
         </section>
         <section>
           {% load static %}
-          <div class="image"><img src="{% static "boxy/images/truck_carrying_truck_annotated.png" %}" alt="" /></div>
+          <div class="image"><img src="{% static "boxy/images/truck_carrying_truck_annotated.png" %}" alt="Annotation with truck carrying a car" /></div>
           <div class="content">
             <header class="major">
               <br /><br />
