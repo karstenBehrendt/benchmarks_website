@@ -25,32 +25,6 @@ def index(request):
     return HttpResponse(index_template.render(context, request))
 
 
-def _get_client_ip(request):
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
-    else:
-        ip = request.META.get('REMOTE_ADDR')
-    return ip
-
-
-def _grecaptcha_verify(recaptcha_response, request):
-    """ Actually checking if human """
-    if not recaptcha_response:
-        return False
-    # site_key = '6LfCS20UAAAAAGfOFb3llx-MXWsRWdVRxMAEmEPs'
-    secret_recaptcha_key = '6LfCS20UAAAAAD3OtbLB9wC65ug3BFdYMO7iwVV8'
-    url = "https://www.google.com/recaptcha/api/siteverify"
-    params = {
-        'secret': secret_recaptcha_key,
-        'response': recaptcha_response,
-        'remoteip': _get_client_ip(request)
-    }
-    verify_rs = requests.get(url, params=params, verify=True)
-    verify_rs = verify_rs.json()
-    return verify_rs.get("success", False)
-
-
 @login_required(login_url='../boxy/login')
 def download(request):
     index_template = loader.get_template('boxy/download_links.html')

@@ -19,32 +19,6 @@ def index(request):
     return HttpResponse(index_template.render(context, request))
 
 
-def _get_client_ip(request):
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
-    else:
-        ip = request.META.get('REMOTE_ADDR')
-    return ip
-
-
-def _grecaptcha_verify(recaptcha_response, request):
-    """ Actually checking if human """
-    if not recaptcha_response:
-        return False
-    # site_key = '6LfCS20UAAAAAGfOFb3llx-MXWsRWdVRxMAEmEPs'
-    secret_recaptcha_key = '6LfCS20UAAAAAD3OtbLB9wC65ug3BFdYMO7iwVV8'
-    url = "https://www.google.com/recaptcha/api/siteverify"
-    params = {
-        'secret': secret_recaptcha_key,
-        'response': recaptcha_response,
-        'remoteip': _get_client_ip(request)
-    }
-    verify_rs = requests.get(url, params=params, verify=True)
-    verify_rs = verify_rs.json()
-    return verify_rs.get("success", False)
-
-
 @login_required(login_url='../llamas/login')
 def download(request):
     index_template = loader.get_template('llamas/download_links.html')
@@ -68,9 +42,13 @@ def benchmarks(request):
 def benchmark_binary(request):
     index_template = loader.get_template('llamas/benchmark_base.html')
     context = dict()
-    # TODO results
-    context['results'] = [{'Name': 'Dummy Model', 'AP': 14, 'MAP': 17},
-                          {'Name': 'Dummy Model', 'AP': 14, 'MAP': 17}]
+    # TODO Move into database once there are more results, make it sortable
+    context['results'] = [
+            {'Name': 'Simple Baseline', 'AP': '0.434', 'Corner Precision': '0.546', 'Corner Recall': '0.450',
+             'Runtime': '0.044 s', 'Environment': 'cuDNN, Nvidia GeForce 1080 Ti',
+             'Code': '<a href="https://github.com/karstenBehrendt/unsupervised_llamas/tree/master/simple_baseline"> code </a>',
+             'Paper': '<a href="https://unsupervised-llamas.com">paper</a>', 'External data': 'No', 'Special comment': ''}
+    ]
     context['keys'] = list(context['results'][0].keys())
     context['benchmark_name'] = 'Binary Lane Marker Segmentation'
     context['benchmark_short'] = 'Decide whether a pixel belongs to a lane marker or not'
@@ -80,9 +58,15 @@ def benchmark_binary(request):
 def benchmark_multi(request):
     index_template = loader.get_template('llamas/benchmark_base.html')
     context = dict()
-    # TODO results
-    context['results'] = [{'Name': 'Dummy Model', 'AP': 14, 'MAP': 17},
-                          {'Name': 'Dummy Model', 'AP': 14, 'MAP': 17}]
+    # TODO Move into database once there are more results, make it sortable
+    # NOTE Can be a lot prettier by going away from the generic table
+    context['results'] = [
+            {'Name': 'Simple Baseline', 'mAP': '0.500', 'ap BG': '.999', 'ap L1': '0.211',
+             'ap L0': '0.751', 'ap R0': '0.706', 'ap R1': '0.335',
+             'Runtime': '0.044 s', 'Environment': 'cuDNN, Nvidia GeForce 1080 Ti',
+             'Code': '<a href="https://github.com/karstenBehrendt/unsupervised_llamas/tree/master/simple_baseline"> code </a>',
+             'Paper': '<a href="https://unsupervised-llamas.com">paper</a>', 'External data': 'No', 'Comment': ''}
+    ]
     context['keys'] = list(context['results'][0].keys())
     context['benchmark_name'] = 'Multi-class Lane Marker Segmentation'
     context['benchmark_short'] = 'Decide whether a pixel belongs to a marker and assign it to a lane'
@@ -93,8 +77,8 @@ def benchmark_splines(request):
     index_template = loader.get_template('llamas/benchmark_base.html')
     context = dict()
     # TODO results
-    context['results'] = [{'Name': 'Dummy Model', 'AP': 14, 'MAP': 17},
-                          {'Name': 'Dummy Model', 'AP': 14, 'MAP': 17}]
+    context['results'] = [{'Name': 'NOT PUBLIC', 'AP': 14, 'MAP': 17},
+                          {'Name': 'YET', 'AP': 14, 'MAP': 17}]
     context['keys'] = list(context['results'][0].keys())
     context['benchmark_name'] = 'Lane Approximations'
     context['benchmark_short'] = 'Because curves can be easier to handle than a few thousand pixels'
