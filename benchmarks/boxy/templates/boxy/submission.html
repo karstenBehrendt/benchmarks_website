@@ -4,7 +4,6 @@
 <title>Submission</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<script src='https://www.google.com/recaptcha/api.js'></script>
 {% endblock %}
 
 {% block benchmarks_current %}class="current"{% endblock %}
@@ -14,10 +13,12 @@
 <section class="wrapper style1">
 	<div class="inner">
 		<h2>Submission</h2>
+    <p>The submission process is at a very early stage. At the moment each submission is manually evaluated. Please make sure to check if the evaluation scripts work for the validation set prior to submiting. Additional evaluation scripts and metrics are welcome.</p>
+    <p>By submitting an entry, you accept that I will email you about your submission and that the results will be public.</p>
 
-		{{ error }}
+    <p style="color: red; font-weight: bold;">{{ error }}</p>
 		<p>
-		<form method="post">
+		<form method="post" enctype="multipart/form-data">
 			{% csrf_token %}
 			{{ form.as_p }}
 

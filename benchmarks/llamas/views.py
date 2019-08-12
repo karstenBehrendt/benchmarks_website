@@ -1,3 +1,5 @@
+import datetime
+import os
 import requests
 
 from django import forms
@@ -38,23 +40,31 @@ class SubmissionForm(ModelForm):
                   'paper', 'repo', 'comments_private', 'comments_public']
 
 
-# TODO @login_required(login_url='../boxy/login')
+@login_required(login_url='../boxy/login')
 def submission(request):
-
+    # NOTE Pretty much the same in boxy. Should be combined
     if request.method == 'POST':
-        form = SubmissionForm(request.POST)
+        form = SubmissionForm(request.POST, request.FILES)
         if form.is_valid():
-            submission_instance = form.save(commit=False)
-            submission_instance.user = 'karsten'  # TODO
-            # TODO change upload path
-            submission_instance.save()
-            return HttpResponseRedirect('/boxy/')
+            upload = request.FILES['model_file']
+            time_folder = datetime.datetime.now().strftime("%Y%m%d_%H_%M")
+            model_path = os.path.join('uploaded_models', request.user.username, time_folder)
+            os.makedirs(model_path, exist_ok=True)
+            model_path = os.path.join(model_path, upload.name)
+            with open(model_path, 'wb') as model_handle:
+                for chunk in upload.chunks():
+                    model_handle.write(chunk)
+            form.save()
+            return render(request, 'llamas/quick_message.html',
+                {'error': 'Read Below!',
+                 'message': 'Please send me an email to notify me of this submission. '
+                            'Nothing is automated yet and I will not notice a new entry.'})
         print('Form not valid')
     else:
-        form = SubmissionForm(initial={'user': 'karsten'})  # TODO
+        form = SubmissionForm(initial={'user': request.user.username})
 
     return render(request, 'llamas/submission.html',
-                  {'form': form, 'error': 'Not working yet! Tomorrow!'})
+                  {'form': form, 'error': 'This is all new! Let me know if something does not work!'})
 
 
 def contact(request):

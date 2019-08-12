@@ -1,0 +1,22 @@
+{% extends "llamas/base.html" %}
+
+{% block extrameta %}
+<title>Entry submitted</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+
+{% block benchmarks_current %}class="current"{% endblock %}
+
+{% block contents %}
+
+<section class="wrapper style1">
+	<div class="inner">
+		<h2>Entry submitted</h2>
+    <p style="color: red; font-weight: bold;">{{ error }}</p>
+    <p>{{ message }}</p>
+	</div>
+</section>
+
+
+{% endblock %}
