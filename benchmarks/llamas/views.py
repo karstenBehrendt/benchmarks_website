@@ -1,5 +1,7 @@
 import requests
 
+from django import forms
+from django.forms import ModelForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -11,6 +13,8 @@ from django.shortcuts import render
 from django.template import loader
 
 from captcha.fields import ReCaptchaField
+
+from boxy.models import Submission
 
 
 def index(request):
@@ -24,6 +28,33 @@ def download(request):
     index_template = loader.get_template('llamas/download_links.html')
     context = dict()
     return HttpResponse(index_template.render(context, request))
+
+
+class SubmissionForm(ModelForm):
+    model_file = forms.FileField()
+    class Meta:
+        model = Submission
+        fields = ['user', 'speed', 'env', 'external_used',
+                  'paper', 'repo', 'comments_private', 'comments_public']
+
+
+# TODO @login_required(login_url='../boxy/login')
+def submission(request):
+
+    if request.method == 'POST':
+        form = SubmissionForm(request.POST)
+        if form.is_valid():
+            submission_instance = form.save(commit=False)
+            submission_instance.user = 'karsten'  # TODO
+            # TODO change upload path
+            submission_instance.save()
+            return HttpResponseRedirect('/boxy/')
+        print('Form not valid')
+    else:
+        form = SubmissionForm(initial={'user': 'karsten'})  # TODO
+
+    return render(request, 'llamas/submission.html',
+                  {'form': form, 'error': 'Not working yet! Tomorrow!'})
 
 
 def contact(request):

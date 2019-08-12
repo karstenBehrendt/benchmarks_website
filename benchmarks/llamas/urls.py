@@ -9,6 +9,7 @@ urlpatterns = [
     path('index', views.index, name='index'),
     path('contact', views.contact, name='contact'),
     path('download', views.download, name='llamas_download'),
+    path('submission', views.submission, name='submission'),
     path('benchmarks', views.benchmarks, name='benchmarks'),
     path('benchmark_binary', views.benchmark_binary, name='benchmark_binary'),
     path('benchmark_multi', views.benchmark_multi, name='benchmark_multi'),

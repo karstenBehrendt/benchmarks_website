@@ -1,0 +1,32 @@
+{% extends "boxy/base.html" %}
+
+{% block extrameta %}
+<title>Submission</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}
+
+{% block benchmarks_current %}class="current"{% endblock %}
+
+{% block contents %}
+
+<section class="wrapper style1">
+	<div class="inner">
+		<h2>Submission</h2>
+
+		{{ error }}
+		<p>
+		<form method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+
+			<button type="submit">Submit</button>
+		</form>
+		</p>
+
+	</div>
+</section>
+
+
+{% endblock %}
