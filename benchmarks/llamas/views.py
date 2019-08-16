@@ -36,7 +36,7 @@ class SubmissionForm(ModelForm):
     model_file = forms.FileField()
     class Meta:
         model = Submission
-        fields = ['user', 'speed', 'env', 'external_used',
+        fields = ['user', 'model_name', 'speed', 'env', 'external_used',
                   'paper', 'repo', 'comments_private', 'comments_public']
 
 

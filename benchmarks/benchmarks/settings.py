@@ -50,8 +50,9 @@ INSTALLED_APPS = [
     'benchmarks',
 ]
 
+SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']  # For testing offline
 RECAPTCHA_PUBLIC_KEY = '6LfCS20UAAAAAGfOFb3llx-MXWsRWdVRxMAEmEPs'
-SECRET_KEY = os.environ['RECAPTCHA_PRIVATE'] 
+RECAPTCHA_PRIVATE_KEY = os.environ['RECAPTCHA_PRIVATE']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
