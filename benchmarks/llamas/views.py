@@ -102,6 +102,11 @@ def benchmark_multi(request):
     # TODO Move into database once there are more results, make it sortable
     # NOTE Can be a lot prettier by going away from the generic table
     context['results'] = [
+            {'Name': 'ENet-SAD-Simple', 'mAP': '0.635', 'ap BG': '.999', 'ap L1': '0.266',
+             'ap L0': '0.896', 'ap R0': '0.880', 'ap R1': '0.498',
+             'Runtime': '0.013 s', 'Environment': 'Torch',
+             'Code': '<a href="https://github.com/cardwing/Codes-for-Lane-Detection"> code </a>',
+             'Paper': '<a href="https://arxiv.org/abs/1908.00821">paper</a>', 'External data': 'No', 'Comment': ''},
             {'Name': 'Simple Baseline', 'mAP': '0.500', 'ap BG': '.999', 'ap L1': '0.211',
              'ap L0': '0.751', 'ap R0': '0.706', 'ap R1': '0.335',
              'Runtime': '0.044 s', 'Environment': 'cuDNN, Nvidia GeForce 1080 Ti',
