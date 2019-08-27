@@ -20,10 +20,19 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['BENCHMARK_KEY'] 
+SECRET_KEY = os.environ['BENCHMARK_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+email_base = 'boxy.llamas'  # so it can't be easily scraped and spammed
+EMAIL_HOST_USER = '{}@gmail.com'.format(email_base)
+EMAIL_HOST_PASSWORD = os.environ['GMAIL_PASSWD']
+
 
 ALLOWED_HOSTS = [
     '5.9.71.146',

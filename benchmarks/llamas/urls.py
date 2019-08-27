@@ -21,8 +21,12 @@ urlpatterns = [
          name='login'),
 
     path('password_reset/', PasswordResetView.as_view(
-        template_name='llamas/general_form.html', extra_context={'form_name': 'Reset Password'}), name='password_reset'),
-    path('password_reset/done/', PasswordResetDoneView.as_view(template_name='llamas/general_form.html', extra_context={'form_name': 'Password reset done'}), name='password_reset_done'),
-    path('reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(template_name='llamas_general_form.html', extra_context={'form_name': 'Reset Password'}), name='password_reset_confirm'),
-    path('reset/done/', views.index, name='passwort_reset_forward'),
+        template_name='llamas/general_form.html', extra_context={'form_name': 'Reset Password'},
+        success_url='/llamas/'),
+        name='password_reset'),
+    # path('password_reset/done/', PasswordResetDoneView.as_view(template_name='llamas/general_form.html', extra_context={'form_name': 'Password reset done'}), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(
+        template_name='llamas_general_form.html', extra_context={'form_name': 'Reset Password'},
+        post_reset_login=True, success_url='/llamas/'), name='password_reset_confirm'),
+    # path('reset/done/', views.index, name='passwort_reset_forward'),
 ]
