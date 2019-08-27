@@ -24,9 +24,7 @@ urlpatterns = [
         template_name='boxy/general_form.html', extra_context={'form_name': 'Reset Password'},
         success_url='/boxy/'),
         name='password_reset'),
-    # path('password_reset/done/', PasswordResetDoneView.as_view(template_name='boxy/index.html'), ),
     path('reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(
-        template_name='boxy_general_form.html', extra_context={'form_name': 'Reset Password'},
+        template_name='boxy/general_form.html', extra_context={'form_name': 'Reset Password'},
         post_reset_login=True, success_url='/boxy/'), name='password_reset_confirm'),
-    # path('reset/done/', views.index, name='passwort_reset_forward'),
 ]
