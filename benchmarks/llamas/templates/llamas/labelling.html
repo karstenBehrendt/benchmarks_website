@@ -1,0 +1,75 @@
+{% extends "llamas/base.html" %}
+
+{% block extrameta %}
+<title>Unsupervised Llamas Lane Marker Benchmarks</title>
+<meta name="description" content="Description of the automated labelling procedure for lane markers using maps" />
+<meta name="keywords" content="lane markers, automated labelling" />
+{% endblock %}
+
+{% block labelling_current %}class="current"{% endblock %}
+
+{% block contents %}
+<!-- Section -->
+  <section class="wrapper style1">
+    <div class="inner">
+      <header class="major special">
+        <h1>Automated Labelling of Lane Markers</h1>
+      </header>
+
+
+
+{% load static %}
+<p>In the following, we are going to visualize the process of generating the lane marker labels step by step.</p>
+<img src="{% static "llamas/images/pipeline/1419287247_0942030000_color_rect.jpg" %}" alt="" />
+<p>As a first step, we need an automated vehicle with extrinsically and intrinsically calibrated camera sensor(s). Recording camera images usually is fairly straightforward.
+</p>
+
+<img src="{% static "llamas/images/pipeline/map_crop.jpg" %}" alt="" />
+<p>We also need a high definition map of lane markers that we can localize against.
+Such a map can be generated with a few drives over the same area. 
+One important principle is that we only need to detect lane markers very close to our vehicle since we are going to closely pass all of them over time.
+At short distances, lane markers are mostly very easy to detect which we did with a lidar sensor, but that is not a necessity.
+</p>
+
+<img src="{% static "llamas/images/pipeline/1419287247_0942030000_segmentation_bad.jpg" %}" alt="" />
+<p>After localizing against the map, we can project the mapped markers into the image for arbitrary distances. Unfortunately, this projection is not going to be completely accurate because of inaccurate localization, calibration offsets, a moving suspension, and much more.
+Even small rotational offsets linearly increase with distance.
+</p>
+
+<img src="{% static "llamas/images/pipeline/1419287247_0942030000_tophat_9_9.jpg" %}" alt="" />
+<p>Without labels, we can already (poorly) detect lane markers using very straightforward methods such as edge detectors or the output from an applied top hat filter based on a 9x9 kernel as displayed above.
+</p>
+
+<img src="{% static "llamas/images/pipeline/1419287247_0942030000_tophat_thresh_cut.png" %}" alt="" />
+<p>By thresholding the filter output and removing the upper parts of the image, we can already get a very simple lane marker estimate with only three lines of code.
+</p>
+
+<img src="{% static "llamas/images/pipeline/1419287247_0942030000_tophat_thresh_cut_and_bad.png" %}" alt="" />
+<p>In this view, especially on the right, we can see an offset between detected (white) and projected markers (red) already.
+</p>
+
+<img src="{% static "llamas/images/pipeline/1419287247_0942030000_tophat_thresh_cut_good_and_bad.png" %}" alt="" />
+<p>We can now optimize the marker projection from the map into the image to better fit the detected markers. The correct markers are displayed in green and can already be used as labels.
+</p>
+
+<img src="{% static "llamas/images/pipeline/1419287247_0942030000_inference.png" %}" alt="" />
+<p>After annotating a few thousand images like that, we can train an actual detector on those initially generated labels. The output of such a trained model is displayed above.
+</p>
+
+<img src="{% static "llamas/images/pipeline/1419287247_0942030000_tophat_thresh_cut_good_and_bad_inference.png" %}" alt="" />
+<p>These better detections (white) allow for a more accurate projection (green) of markers from the map into the image. In red, we show the initial projection (red) based on calibration and localization only.
+</p>
+
+<img src="{% static "llamas/images/pipeline/1419287247_0942030000_segmentation_correct.jpg" %}" alt="" />
+<p>This image shows the corrected projection with map information such as individual lane markers and lane associations in the original image. There still are offsets because of occluded markers, inaccurate detections, and flaws in the auto generated map (for example, see the red marker on the left), but labelling up to the accuracy provided by this approach already is extremely time consuming and tricky.
+</p>
+
+
+
+
+
+
+    </div> <!-- Emd of inner -->
+  </section> <!-- Emd of wrapper style1
+
+{% endblock %}

@@ -80,6 +80,13 @@ def benchmarks(request):
     return HttpResponse(index_template.render(context, request))
 
 
+def labelling(request):
+    # TODO Add links to other benchmarks here
+    index_template = loader.get_template('llamas/labelling.html')
+    context = dict()
+    return HttpResponse(index_template.render(context, request))
+
+
 def benchmark_binary(request):
     index_template = loader.get_template('llamas/benchmark_base.html')
     context = dict()
