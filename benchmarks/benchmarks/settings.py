@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['BENCHMARK_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -58,10 +58,6 @@ INSTALLED_APPS = [
     'captcha',
     'benchmarks',
 ]
-
-SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']  # For testing offline
-RECAPTCHA_PUBLIC_KEY = '6LfCS20UAAAAAGfOFb3llx-MXWsRWdVRxMAEmEPs'
-RECAPTCHA_PRIVATE_KEY = os.environ['RECAPTCHA_PRIVATE']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

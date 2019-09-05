@@ -3,7 +3,6 @@
 {% block extrameta %}
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<script src='https://www.google.com/recaptcha/api.js'></script>
 {% endblock %}
 
 {% block download_current %}class="current"{% endblock %}
@@ -21,8 +20,7 @@
 			{% csrf_token %}
 			{{ form.as_p }}
 
-		
-			{# workaround to get "label for" checkbox instead of default form booleanfield #} 	
+			{# workaround to get "label for" checkbox instead of default form booleanfield #}
 			{% if form_name == "Register" %}
 			<div class="col-6 col-12-small">
 				<input type="checkbox" id="license" name="license">

@@ -14,7 +14,7 @@ from django.shortcuts import redirect
 from django.shortcuts import render
 from django.template import loader
 
-from captcha.fields import ReCaptchaField
+from captcha.fields import CaptchaField
 
 from boxy.models import Submission
 
@@ -146,7 +146,7 @@ def imprint(request):
 
 
 class SignUpForm(UserCreationForm):
-    recaptcha = ReCaptchaField(label="I'm a human")
+    captcha = CaptchaField(label="I'm a human")
 
     class Meta:
         model = User

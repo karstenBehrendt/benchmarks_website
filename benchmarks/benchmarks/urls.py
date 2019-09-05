@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls import url
 
 handler404 = 'boxy.views.bad_request'
 
@@ -22,4 +23,5 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('boxy/', include('boxy.urls')),
     path('llamas/', include('llamas.urls')),
+    url(r'^captcha/', include('captcha.urls')),
 ]
