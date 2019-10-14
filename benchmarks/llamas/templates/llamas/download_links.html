@@ -1,0 +1,37 @@
+{% extends "llamas/base.html" %}
+
+{% block extrameta %}
+<title>Download links</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+
+{% block download_current %}class="current"{% endblock %}
+
+{% block contents %}
+  <section class="wrapper style1">
+    <div class="inner">
+
+      <header class="major special">
+        <h1>All The Download Links</h1>
+        <p>Grayscale images, RBBI reconstructed color images, json files for the annotations<br />
+        100,042 images. Checkout the repo. Take a closer look at the label information. Suggest benchmarks.<br/>
+        Links valid for 30 days! Do yourself a favor and use a download manager.</p>
+      </header>
+
+      <p>Scripts to get started are available at <a href="https://github.com/karstenbehrendt/unsupervised_llamas"> https://github.com/karstenbehrendt/unsupervised_llamas</a>. Feel free to extend them. </p>
+      
+      <h3>Color images</h3>
+      <p>108 GB</br>
+      Europe: {{europe_server}}/{{current_simlink}}/color_images.zip </p>
+      <h3>Grayscale images </h3>
+      <p>34 GB </br>
+      Europe: {{europe_server}}/{{current_simlink}}/grayscale_images.zip </p>
+      <h3>Label files</h3>
+      <p>650 MB. Take a look at the repo!</br>
+      Europe: {{europe_server}}/{{current_simlink}}/labels.zip </p>
+
+    </div>
+  </section>
+
+{%endblock %}

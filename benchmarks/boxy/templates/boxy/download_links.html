@@ -1,0 +1,94 @@
+{% extends "boxy/base.html" %}
+
+{% block extrameta %}
+<title>Download Files</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+
+{% block download_current %}class="current"{% endblock %}
+
+{% block contents %}
+<!-- Section -->
+  <section class="wrapper style1">
+    <div class="inner">
+      <header class="major special">
+        <h1>All The Download Links</h1>
+        <p>Full resolution 5 megapixel files, downscaled versions, and annotation files<br />
+        Don't forget to check your internet provider's traffic limits!<br />
+	Do yourself a favor, use a download manager. <br />
+        Links valid for 30 days!</p>
+      </header>
+      <p> If you have a good approach to normalize images while staying fairly true to color, please let me know. Most nighttime images are too dark before normalization because of sub-optimal camera settings. We would upload normalized images additionally. <p>
+      <p style="color:red;"> Please email boxy@kbehrendt.com if there are any issues with the download links. </p>
+      <p> Scripts to get started are available at <a href=https://github.com/karstenbehrendt/boxy>https://github.com/karstenbehrendt/boxy</a>. Feel free to extend them.</p>
+      <h3>2464x2056, 5MP PNGs: 614 GB</h3>
+      <p>
+      Europe:
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-09-27-14-43-04_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-09-30-14-41-23_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-09-30-15-03-39_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-09-30-15-19-35_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-10-04-14-22-41_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-10-10-15-17-24_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-10-10-15-24-37_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-10-10-15-32-33_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-10-10-15-35-18_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-10-10-16-00-11_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-10-10-16-12-20_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-10-10-16-43-45_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-10-10-18-41-33_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-10-26-12-49-56_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-10-26-13-00-25_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-10-26-13-04-33_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-10-26-17-57-22_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-10-26-18-03-11_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-10-30-09-53-48_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-10-30-10-01-47_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-10-30-10-04-51_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-10-30-10-26-40_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-11-01-10-20-23_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-11-03-15-28-03_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw/bluefox_2016-11-03-15-40-30_bag.zip
+      </p>
+      <h3>Downscaled to 1232x1028 pixels, 221 GB</h3>
+      <p>
+      Europe:
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-09-27-14-43-04_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-09-30-14-41-23_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-09-30-15-03-39_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-09-30-15-19-35_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-10-04-14-22-41_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-10-10-15-17-24_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-10-10-15-24-37_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-10-10-15-32-33_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-10-10-15-35-18_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-10-10-16-00-11_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-10-10-16-12-20_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-10-10-16-43-45_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-10-10-18-41-33_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-10-26-12-49-56_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-10-26-13-00-25_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-10-26-13-04-33_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-10-26-17-57-22_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-10-26-18-03-11_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-10-30-09-53-48_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-10-30-10-01-47_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-10-30-10-04-51_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-10-30-10-26-40_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-11-01-10-20-23_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-11-03-15-28-03_bag.zip
+      <br />{{europe_server}}/{{current_simlink}}/boxy_raw_scaled/bluefox_2016-11-03-15-40-30_bag.zip
+      </p>
+      <h3>The Annotations</h3>
+      <p>
+      Europe:<br>
+      {{europe_server}}/{{current_simlink}}/boxy_labels_train.json<br>
+      {{europe_server}}/{{current_simlink}}/boxy_labels_valid.json<br>
+      Go ahead. Try replacing train with test. It's not here :)<br>
+      </p>
+      <!-- TODO Add summary of checksums -->
+
+  </section>
+
+{%endblock %}

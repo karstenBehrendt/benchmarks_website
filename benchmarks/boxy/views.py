@@ -32,8 +32,10 @@ def index(request):
 
 @login_required(login_url='../boxy/login')
 def download(request):
+    europe_server = 'http://5.9.71.146'
+    current_simlink = 'dqrtq7zmfsr4q59crcya'
+    context = {'europe_server': europe_server, 'current_simlink': current_simlink}
     index_template = loader.get_template('boxy/download_links.html')
-    context = dict()
     return HttpResponse(index_template.render(context, request))
 
 

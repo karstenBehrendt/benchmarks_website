@@ -27,8 +27,10 @@ def index(request):
 
 @login_required(login_url='../llamas/login')
 def download(request):
+    europe_server = 'http://5.9.71.146'
+    current_simlink = 'vlyJctVXJu8Hfw'
     index_template = loader.get_template('llamas/download_links.html')
-    context = dict()
+    context = {'europe_server': europe_server, 'current_simlink': current_simlink}
     return HttpResponse(index_template.render(context, request))
 
 
