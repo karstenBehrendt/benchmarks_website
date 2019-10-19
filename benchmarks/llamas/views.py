@@ -3,11 +3,12 @@ import os
 import requests
 
 from django import forms
-from django.forms import ModelForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
+from django.forms import ModelForm
 from django.http import HttpResponse
 
 from django.shortcuts import redirect
@@ -57,10 +58,20 @@ def submission(request):
                 for chunk in upload.chunks():
                     model_handle.write(chunk)
             form.save()
+
+            email_from = "boxy." + "llamas" + "@" + "gmail.com"  # To at least ignore really stupid crawlers
+            email_to = "llamas" + "@" + "kbehrendt.com"
+            send_mail(
+                'Llamas submission by {}'.format(request.user.username),
+                'See title. Another submission.',
+                 email_from,	
+                [email_to],
+                fail_silently=True,
+            )
+
             return render(request, 'llamas/quick_message.html',
-                {'error': 'Read Below!',
-                 'message': 'Please send me an email to notify me of this submission. '
-                            'Nothing is automated yet and I will not notice a new entry.'})
+                {'error': 'Submission successful',
+                 'message': 'Feel free to shoot me an email to check if everything is in order.'})
         print('Form not valid')
     else:
         form = SubmissionForm(initial={'user': request.user.username})
