@@ -68,7 +68,7 @@ def submission(request):
             send_mail(
                 'Boxy submission by {}'.format(request.user.username),
                 'See title. Another submission.',
-                 email_from,	
+                 email_from,
                 [email_to],
                 fail_silently=True,
             )
@@ -81,7 +81,7 @@ def submission(request):
         form = SubmissionForm(initial={'user': request.user.username})
 
     return render(request, 'boxy/submission.html',
-                  {'form': form, 'error': 'This is all new! Let me know if something does not work!'})
+                  {'form': form, 'error': 'Uploads regularly time out. Alternatively, send me a link to your submission to "boxy" @ "kbehrendt" . "com"!'})
 
 
 def contact(request):

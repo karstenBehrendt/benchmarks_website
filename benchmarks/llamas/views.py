@@ -64,7 +64,7 @@ def submission(request):
             send_mail(
                 'Llamas submission by {}'.format(request.user.username),
                 'See title. Another submission.',
-                 email_from,	
+                 email_from,
                 [email_to],
                 fail_silently=True,
             )
@@ -77,7 +77,7 @@ def submission(request):
         form = SubmissionForm(initial={'user': request.user.username})
 
     return render(request, 'llamas/submission.html',
-                  {'form': form, 'error': 'This is all new! Let me know if something does not work!'})
+                  {'form': form, 'error': 'Uploads seem to time out regularly. Alternatively send a link to your submission to "llamas" @ "kbehrendt" . "com"!'})
 
 
 def contact(request):
@@ -105,6 +105,10 @@ def benchmark_binary(request):
     context = dict()
     # TODO Move into database once there are more results, make it sortable
     context['results'] = [
+            {'Name': 'GAC Baseline 1', 'AP': '0.778', 'Corner Precision': '0.748', 'Corner Recall': '0.307',
+             'Runtime': '0.05 s', 'Environment': 'PyTorch, Tesla V100',
+             'Code': 'Not public yet',
+             'Paper': 'Not public yet', 'External data': 'No', 'Special comment': ''},
             {'Name': 'Simple Baseline', 'AP': '0.434', 'Corner Precision': '0.546', 'Corner Recall': '0.450',
              'Runtime': '0.044 s', 'Environment': 'cuDNN, Nvidia GeForce 1080 Ti',
              'Code': '<a href="https://github.com/karstenBehrendt/unsupervised_llamas/tree/master/simple_baseline"> code </a>',
@@ -122,6 +126,11 @@ def benchmark_multi(request):
     # TODO Move into database once there are more results, make it sortable
     # NOTE Can be a lot prettier by going away from the generic table
     context['results'] = [
+            {'Name': 'GAC Baseline 1', 'mAP': '0.761', 'ap BG': '.999', 'ap L1': '0.432',
+             'ap L0': '0.941', 'ap R0': '0.925', 'ap R1': '0.744',
+             'Runtime': '0.05 s', 'Environment': 'PyTorch, Tesla 100',
+             'Code': 'Not public yet',
+             'Paper': 'Not public yet', 'External data': 'No', 'Comment': ''},
             {'Name': 'ENet-SAD-Simple', 'mAP': '0.635', 'ap BG': '.999', 'ap L1': '0.266',
              'ap L0': '0.896', 'ap R0': '0.880', 'ap R1': '0.498',
              'Runtime': '0.013 s', 'Environment': 'Torch',
