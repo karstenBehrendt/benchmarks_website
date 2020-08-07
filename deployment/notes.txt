@@ -1,5 +1,7 @@
 Disable directory listing for fresh webserver. Looking at you apache.
 
+Create symlinks to the datasets from /var/www/html
+
 Set BENCHMARK_KEY in /etc/profile
 
 Restart uwsgi (note yet daemonized)
