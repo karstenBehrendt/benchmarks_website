@@ -152,8 +152,7 @@ def benchmark_splines(request):
     index_template = loader.get_template('llamas/benchmark_base.html')
     context = dict()
     # TODO results
-    context['results'] = [{'Name': 'NOT PUBLIC', 'AP': 14, 'MAP': 17},
-                          {'Name': 'YET', 'AP': 14, 'MAP': 17}]
+    context['results'] = [{'Name': 'Simple Mean Baseline', 'All': '31.00', 'l1': '33.78', 'l0': '26.34', 'r0': '30.24', 'r1': '34.75', 'Comment': "Within github repo"}]
     context['keys'] = list(context['results'][0].keys())
     context['benchmark_name'] = 'Lane Approximations'
     context['benchmark_short'] = 'Because curves can be easier to handle than a few thousand pixels'
