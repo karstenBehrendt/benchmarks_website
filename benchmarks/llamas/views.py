@@ -48,7 +48,8 @@ def submission(request):
     if request.method == 'POST':
         form = SubmissionForm(request.POST, request.FILES)
         if form.is_valid():
-            content_str = "\n".join([f"{field}: {form.cleaned_data[field]}" for field in SubmissionForm.fields])
+            content_str = "\n".join([f"{field}: {value}" for field, value in form.cleaned_data.items()])
+            print(content_str)
 
             email_from = "boxy." + "llamas" + "@" + "gmail.com"  # To at least ignore really stupid crawlers
             email_to = "llamas" + "@" + "kbehrendt.com"
@@ -63,7 +64,6 @@ def submission(request):
             return render(request, 'llamas/quick_message.html',
                 {'error': 'Submission successful',
                  'message': 'Feel free to shoot me an email to check if everything is in order.'})
-        print('Form not valid')
     else:
         form = SubmissionForm(initial={'user': request.user.username})
 
