@@ -42,8 +42,8 @@ def download(request):
 class SubmissionForm(ModelForm):
     class Meta:
         model = Submission
-        fields = ['user', 'model_url', 'model_name', 'speed', 'env', 'external_used',
-                  'paper', 'repo', 'comments_private', 'comments_public']
+        fields = ['user', 'results_url', 'model_name', 'speed', 'env', 'external_used',
+                  'paper', 'email', 'repo', 'comments_private', 'comments_public']
 
 
 @login_required(login_url='../boxy/login')
@@ -51,7 +51,7 @@ def submission(request):
     # NOTE Pretty much the same in boxy. Should be combined
     if request.method == 'POST':
         form = SubmissionForm(request.POST, request.FILES)
-
+        if form.is_valid():
             content_str = "\n".join([f"{field}: {form.cleaned_data[field]}" for field in SubmissionForm.fields])
 
             email_from = "boxy." + "llamas" + "@" + "gmail.com"  # To at least ignore really stupid crawlers

@@ -36,11 +36,10 @@ def download(request):
 
 
 class SubmissionForm(ModelForm):
-    model_file = forms.FileField()
     class Meta:
         model = Submission
-        fields = ['user', 'model_url', 'model_name', 'speed', 'env', 'external_used',
-                  'paper', 'repo', 'comments_private', 'comments_public']
+        fields = ['user', 'results_url', 'model_name', 'speed', 'env', 'external_used',
+                  'paper', 'email', 'repo', 'comments_private', 'comments_public']
 
 
 @login_required(login_url='../boxy/login')
