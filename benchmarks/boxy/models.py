@@ -8,6 +8,7 @@ class Downloader(models.Model):
 
 class Submission(models.Model):
     user = models.CharField('User name', max_length=100)
+    model_url = models.CharField('Model name', max_length=200)
     model_name = models.CharField('Model name', max_length=100)
     speed = models.FloatField('Inference time in seconds')  # in seconds
     env = models.CharField('Software and Hardware Environment', max_length=100, blank=True)

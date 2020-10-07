@@ -40,10 +40,9 @@ def download(request):
 
 
 class SubmissionForm(ModelForm):
-    model_file = forms.FileField()
     class Meta:
         model = Submission
-        fields = ['user', 'model_name', 'speed', 'env', 'external_used',
+        fields = ['user', 'model_url', 'model_name', 'speed', 'env', 'external_used',
                   'paper', 'repo', 'comments_private', 'comments_public']
 
 
@@ -52,23 +51,15 @@ def submission(request):
     # NOTE Pretty much the same in boxy. Should be combined
     if request.method == 'POST':
         form = SubmissionForm(request.POST, request.FILES)
-        if form.is_valid():
-            upload = request.FILES['model_file']
-            time_folder = datetime.datetime.now().strftime("%Y%m%d_%H_%M")
-            model_path = os.path.join('uploaded_models', request.user.username, time_folder)
-            os.makedirs(model_path, exist_ok=True)
-            model_path = os.path.join(model_path, upload.name)
-            with open(model_path, 'wb') as model_handle:
-                for chunk in upload.chunks():
-                    model_handle.write(chunk)
-            form.save()
+
+            content_str = "\n".join([f"{field}: {form.cleaned_data[field]}" for field in SubmissionForm.fields])
 
             email_from = "boxy." + "llamas" + "@" + "gmail.com"  # To at least ignore really stupid crawlers
             email_to = "llamas" + "@" + "kbehrendt.com"
             send_mail(
                 'Boxy submission by {}'.format(request.user.username),
-                'See title. Another submission.',
-                 email_from,
+                f"See title. Another submission. \n {content_str}",
+                email_from,
                 [email_to],
                 fail_silently=True,
             )
