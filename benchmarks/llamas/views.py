@@ -142,11 +142,23 @@ def benchmark_multi(request):
 def benchmark_splines(request):
     index_template = loader.get_template('llamas/benchmark_base.html')
     context = dict()
-    # TODO results
-    context['results'] = [{'Name': 'Simple Mean Baseline', 'All': '31.00', 'l1': '33.78', 'l0': '26.34', 'r0': '30.24', 'r1': '34.75', 'Comment': "Within github repo"}]
-    context['keys'] = list(context['results'][0].keys())
     context['benchmark_name'] = 'Lane Approximations'
     context['benchmark_short'] = 'Because curves can be easier to handle than a few thousand pixels'
+
+    # paper metrics
+    context['metric_name'] = "Mean absolute distance"
+    context['metric_description'] = "To get a feeling for the overall accuracy of the detector for each annotated lane segment."
+    context['results'] = [{'Name': 'Simple Mean Baseline', 'All': '31.00', 'l1': '33.78', 'l0': '26.34', 'r0': '30.24', 'r1': '34.75', 'Comment': "Within github repo"}]
+    context['keys'] = list(context['results'][0].keys())
+
+    # culane metrics
+    context['metric_name2'] = "CuLane Metrics"
+    context['metric_description2'] = "Accuracy metrics for detected lanes based on 30 pixel accuracy and an overview greater or equal to 0.5"
+    context['results2'] = [
+            {'Name': 'Lucas', 'TP': '68495', 'FP': '2273', 'FN': '6874', 'Precision': '0.9679', 'Recall': '0.9088', 'F1': 0.9374, 'Comment': "TBD"},
+            {'Name': 'Mean Baseline', 'TP': '917', 'FP': '82799', 'FN': '74452', 'Precision': '0.0110', 'Recall': '0.0122', 'F1': '0.0115', 'Comment': "Not useful as baseline"},
+    ]
+    context['keys2'] = list(context['results2'][0].keys())
     return HttpResponse(index_template.render(context, request))
 
 

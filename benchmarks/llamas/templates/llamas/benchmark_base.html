@@ -17,6 +17,9 @@
         <p>{{ benchmark_short }}</p>
       </header>
 
+      <h4>{{metric_name}} </h4>
+ {{metric_description}}
+
       <div class="table-wrapper">
         <table>
           <thead>
@@ -40,6 +43,33 @@
         </table>
       </div><!-- table-wrapper -->
 
+
+<h4>{{metric_name2}}</h4>
+{{metric_description2}}
+
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+{% for key in keys2 %}
+              <th>{{ key }}</th>
+{% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+
+{% for result in results2 %}
+    <tr>
+	{% for key, val in result.items %}
+			<td class="{{ key }}">{{ val |safe}}</td>
+	{% endfor %}
+    </tr>
+{% endfor %}
+
+          </tbody>
+        </table>
+      </div><!-- table-wrapper -->
 
     </div>
   </section>
