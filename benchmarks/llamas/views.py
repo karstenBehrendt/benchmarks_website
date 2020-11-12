@@ -147,7 +147,7 @@ def benchmark_splines(request):
 
     # paper metrics
     context['metric_name'] = "Mean absolute distance"
-    context['metric_description'] = "To get a feeling for the overall accuracy of the detector for each annotated lane segment."
+    context['metric_description'] = "The original dataset metric. To get a feeling for the overall accuracy of the detector for each annotated lane segment."
     context['results'] = [
         {'Name': 'VSA SP', 'All': '17.88', 'l1': '32.62', 'l0': '8.74', 'r0': '9.95', 'r1': '25.93', 'Comment': "Trained on train and valid sets"},
         {'Name': 'VSA SP', 'All': '18.47', 'l1': '32.84', 'l0': '8.57', 'r0': '11.56', 'r1': '26.51', 'Comment': "Trained on training set only"},
@@ -158,7 +158,7 @@ def benchmark_splines(request):
 
     # culane metrics
     context['metric_name2'] = "CuLane Metrics"
-    context['metric_description2'] = "Accuracy metrics for detected lanes based on 30 pixel accuracy and an overview greater or equal to 0.5"
+    context['metric_description2'] = "(Added early November) Accuracy metrics for detected lanes based on 30 pixel accuracy and an IOU greater or equal to 0.5"
     context['results2'] = [
             {'Name': 'Lucas', 'TP': '68495', 'FP': '2273', 'FN': '6874', 'Precision': '0.9679', 'Recall': '0.9088', 'F1': 0.9374, 'Comment': "TBD"},
             {'Name': 'Mean Baseline', 'TP': '917', 'FP': '82799', 'FN': '74452', 'Precision': '0.0110', 'Recall': '0.0122', 'F1': '0.0115', 'Comment': "Not useful as baseline"},
