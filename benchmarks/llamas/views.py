@@ -148,7 +148,12 @@ def benchmark_splines(request):
     # paper metrics
     context['metric_name'] = "Mean absolute distance"
     context['metric_description'] = "To get a feeling for the overall accuracy of the detector for each annotated lane segment."
-    context['results'] = [{'Name': 'Simple Mean Baseline', 'All': '31.00', 'l1': '33.78', 'l0': '26.34', 'r0': '30.24', 'r1': '34.75', 'Comment': "Within github repo"}]
+    context['results'] = [
+        {'Name': 'VSA SP', 'All': '17.88', 'l1': '32.62', 'l0': '8.74', 'r0': '9.95', 'r1': '25.93', 'Comment': "Trained on train and valid sets"},
+        {'Name': 'VSA SP', 'All': '18.47', 'l1': '32.84', 'l0': '8.57', 'r0': '11.56', 'r1': '26.51', 'Comment': "Trained on training set only"},
+        {'Name': 'VSA', 'All': '19.00', 'l1': '34.77', 'l0': '8.74', 'r0': '10.79', 'r1': '27.84', 'Comment': ""},
+        {'Name': 'Simple Mean Baseline', 'All': '31.00', 'l1': '33.78', 'l0': '26.34', 'r0': '30.24', 'r1': '34.75', 'Comment': "Within github repo"},
+    ]
     context['keys'] = list(context['results'][0].keys())
 
     # culane metrics
