@@ -160,10 +160,10 @@ def benchmark_splines(request):
     context['metric_name2'] = "CULane Metrics"
     context['metric_description2'] = "(Added early November) Accuracy metrics for detected lanes based on 30 pixel accuracy and an IoU greater or equal to 0.5"
     context['results2'] = [
-            {'Name': 'LaneATT (ResNet-18)', 'TP': '68012', 'FP': '2161', 'FN': '7357', 'Precision': '0.9692', 'Recall': '0.9024', 'F1': '0.9346', 'Comment': "TBD"},
-            {'Name': 'LaneATT (ResNet-34)', 'TP': '68495', 'FP': '2273', 'FN': '6874', 'Precision': '0.9679', 'Recall': '0.9088', 'F1': '0.9374', 'Comment': "TBD"},
-            {'Name': 'LaneATT (ResNet-122)', 'TP': '68190', 'FP': '2239', 'FN': '7179', 'Precision': '0.9682', 'Recall': '0.9047', 'F1': '0.9354', 'Comment': "TBD"},
-            {'Name': 'PolyLaneNet', 'TP': '66272', 'FP': '8302', 'FN': '9097', 'Precision': '0.8887', 'Recall': '0.8793', 'F1': '0.8840', 'Comment': ""},
+            {'Name': 'LaneATT (ResNet-18)', 'TP': '68012', 'FP': '2161', 'FN': '7357', 'Precision': '0.9692', 'Recall': '0.9024', 'F1': '0.9346', 'Comment': "Code and models are available at https://github.com/lucastabelini/LaneATT."},
+            {'Name': 'LaneATT (ResNet-34)', 'TP': '68495', 'FP': '2273', 'FN': '6874', 'Precision': '0.9679', 'Recall': '0.9088', 'F1': '0.9374', 'Comment': "Code and models are available at https://github.com/lucastabelini/LaneATT."},
+            {'Name': 'LaneATT (ResNet-122)', 'TP': '68190', 'FP': '2239', 'FN': '7179', 'Precision': '0.9682', 'Recall': '0.9047', 'F1': '0.9354', 'Comment': "Code and models are available at https://github.com/lucastabelini/LaneATT."},
+            {'Name': 'PolyLaneNet', 'TP': '66272', 'FP': '8302', 'FN': '9097', 'Precision': '0.8887', 'Recall': '0.8793', 'F1': '0.8840', 'Comment': "Code and models are available at https://github.com/lucastabelini/PolyLaneNet."},
             {'Name': 'Mean Baseline', 'TP': '917', 'FP': '82799', 'FN': '74452', 'Precision': '0.0110', 'Recall': '0.0122', 'F1': '0.0115', 'Comment': "Not useful as baseline"},
     ]
     context['keys2'] = list(context['results2'][0].keys())
