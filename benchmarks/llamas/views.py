@@ -160,6 +160,9 @@ def benchmark_splines(request):
     context['metric_name2'] = "CULane Metrics"
     context['metric_description2'] = "(Added early November) Accuracy metrics for detected lanes based on 30 pixel accuracy and an IoU greater or equal to 0.5"
     context['results2'] = [
+            {'Name': 'LaneAF', 'TP': '71793', 'FP': '2291', 'FN': '3576', 'Precision': '0.9691', 'Recall': '0.9526', 'F1': '0.9601', 'Comment': "Code https://github.com/sel118/LaneAF, paper http://cvrr.ucsd.edu/publications/2021/LaneAF.pdf, 10 fps"},
+            {'Name': 'MSCA Resnet34', 'TP': '68474', 'FP': '2204', 'FN': '6895', 'Precision': '0.9688', 'Recall': '0.9085', 'F1': '0.9377', 'Comment': ""},
+            {'Name': 'MSCA Resnet19', 'TP': '68493', 'FP': '2283', 'FN': '6876', 'Precision': '0.9677', 'Recall': '0.9088', 'F1': '0.9373', 'Comment': ""},
             {'Name': 'LaneATT (ResNet-18)', 'TP': '68012', 'FP': '2161', 'FN': '7357', 'Precision': '0.9692', 'Recall': '0.9024', 'F1': '0.9346', 'Comment': "Code and models are available at https://github.com/lucastabelini/LaneATT."},
             {'Name': 'LaneATT (ResNet-34)', 'TP': '68495', 'FP': '2273', 'FN': '6874', 'Precision': '0.9679', 'Recall': '0.9088', 'F1': '0.9374', 'Comment': "Code and models are available at https://github.com/lucastabelini/LaneATT."},
             {'Name': 'LaneATT (ResNet-122)', 'TP': '68190', 'FP': '2239', 'FN': '7179', 'Precision': '0.9682', 'Recall': '0.9047', 'F1': '0.9354', 'Comment': "Code and models are available at https://github.com/lucastabelini/LaneATT."},
