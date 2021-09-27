@@ -158,15 +158,32 @@ def benchmark_splines(request):
 
     # culane metrics
     context['metric_name2'] = "CULane Metrics"
-    context['metric_description2'] = "(Added early November) Accuracy metrics for detected lanes based on 30 pixel accuracy and an IoU greater or equal to 0.5"
+    context['metric_description2'] = "Accuracy metrics for detected lanes based on 30 pixel accuracy and an IoU greater or equal to 0.5"
+    """ Empty entry block
+            {'Name': '', 'TP': '', 'FP': '', 'FN': '', 'Precision': '', 'Recall': '', 'F1': '', 'Comment': ""},
+    """
     context['results2'] = [
             {'Name': 'LaneAF', 'TP': '71793', 'FP': '2291', 'FN': '3576', 'Precision': '0.9691', 'Recall': '0.9526', 'F1': '0.9601', 'Comment': "Code https://github.com/sel118/LaneAF, paper http://cvrr.ucsd.edu/publications/2021/LaneAF.pdf, 10 fps"},
+            {'Name': 'SCNN VGG16', 'TP': '71425', 'FP': '3315', 'FN': '3944', 'Precision': '0.9556', 'Recall': '0.9477', 'F1': '0.9516', 'Comment': "Code and models: https://github.com/voldemortX/pytorch-auto-drive, Paper: https://ojs.aaai.org/index.php/AAAI/article/view/12301"},  
+            {'Name': 'RCNet B2', 'TP': '71964', 'FP': '2385', 'FN': '3405', 'Precision': '0.9679', 'Recall': '0.9548', 'F1': '0.9613', 'Comment': ""},
+            {'Name': 'RCNet B0', 'TP': '71915', 'FP': '2458', 'FN': '3454', 'Precision': '0.9670', 'Recall': '0.9542', 'F1': '0.9605', 'Comment': ""},
+            {'Name': 'RCNet B1', 'TP': '71941', 'FP': '2513', 'FN': '3428', 'Precision': '0.9662', 'Recall': '0.9545', 'F1': '0.9603', 'Comment': ""},
+            {'Name': 'PointLaneNet Sup', 'TP': '71460', 'FP': '3636', 'FN': '3729', 'Precision': '0.9517', 'Recall': '0.9505', 'F1': '0.9511', 'Comment': ""},
+            {'Name': 'Baseline ERFNet', 'TP': '71235', 'FP': '3673', 'FN': '4134', 'Precision': '0.9510', 'Recall': '0.9451', 'F1': '0.9480', 'Comment': "Code and models:  https://github.com/voldemortX/pytorch-auto-drive"},
+            {'Name': 'Baseline VGG16', 'TP': '70824', 'FP': '3380', 'FN': '4545', 'Precision': '0.9544', 'Recall': '0.9397', 'F1': '0.9470', 'Comment': "Code and models:  https://github.com/voldemortX/pytorch-auto-drive."},
+            {'Name': 'BGCA Remote', 'TP': '71135', 'FP': '4124', 'FN': '4234', 'Precision': '0.9452', 'Recall': '0.9438', 'F1': '0.9445', 'Comment': ""},
+            {'Name': 'BGCA Local', 'TP': '71294', 'FP': '4550', 'FN': '4075', 'Precision': '0.9400', 'Recall': '0.9459', 'F1': '0.9430', 'Comment': ""},
+            {'Name': 'SCNN ResNet34', 'TP': '71141', 'FP': '4455', 'FN': '4228', 'Precision': '0.9411', 'Recall': '0.9439', 'F1': '0.9425', 'Comment': "Code and models:  https://github.com/voldemortX/pytorch-auto-drive"},
+            {'Name': 'SCNN ERFNet', 'TP': '71329', 'FP': '5050', 'FN': '4040', 'Precision': '0.9339', 'Recall': '0.9464', 'F1': '0.9401', 'Comment': "Code and models:  https://github.com/voldemortX/pytorch-auto-drive"},
             {'Name': 'MSCA Resnet34', 'TP': '68474', 'FP': '2204', 'FN': '6895', 'Precision': '0.9688', 'Recall': '0.9085', 'F1': '0.9377', 'Comment': ""},
             {'Name': 'MSCA Resnet19', 'TP': '68493', 'FP': '2283', 'FN': '6876', 'Precision': '0.9677', 'Recall': '0.9088', 'F1': '0.9373', 'Comment': ""},
-            {'Name': 'LaneATT (ResNet-18)', 'TP': '68012', 'FP': '2161', 'FN': '7357', 'Precision': '0.9692', 'Recall': '0.9024', 'F1': '0.9346', 'Comment': "Code and models are available at https://github.com/lucastabelini/LaneATT."},
-            {'Name': 'LaneATT (ResNet-34)', 'TP': '68495', 'FP': '2273', 'FN': '6874', 'Precision': '0.9679', 'Recall': '0.9088', 'F1': '0.9374', 'Comment': "Code and models are available at https://github.com/lucastabelini/LaneATT."},
-            {'Name': 'LaneATT (ResNet-122)', 'TP': '68190', 'FP': '2239', 'FN': '7179', 'Precision': '0.9682', 'Recall': '0.9047', 'F1': '0.9354', 'Comment': "Code and models are available at https://github.com/lucastabelini/LaneATT."},
-            {'Name': 'PolyLaneNet', 'TP': '66272', 'FP': '8302', 'FN': '9097', 'Precision': '0.8887', 'Recall': '0.8793', 'F1': '0.8840', 'Comment': "Code and models are available at https://github.com/lucastabelini/PolyLaneNet."},
+            {'Name': 'LaneATT (ResNet-34)', 'TP': '68495', 'FP': '2273', 'FN': '6874', 'Precision': '0.9679', 'Recall': '0.9088', 'F1': '0.9374', 'Comment': "Code and models:  https://github.com/lucastabelini/LaneATT."},
+            {'Name': 'LaneATT (ResNet-122)', 'TP': '68190', 'FP': '2239', 'FN': '7179', 'Precision': '0.9682', 'Recall': '0.9047', 'F1': '0.9354', 'Comment': "Code and models:  https://github.com/lucastabelini/LaneATT."},
+            {'Name': 'LaneATT (ResNet-18)', 'TP': '68012', 'FP': '2161', 'FN': '7357', 'Precision': '0.9692', 'Recall': '0.9024', 'F1': '0.9346', 'Comment': "Code and models:  https://github.com/lucastabelini/LaneATT."},
+            {'Name': 'Baseline ResNet34', 'TP': '71046', 'FP': '5667', 'FN': '4320', 'Precision': '0.9261', 'Recall': '0.9427', 'F1': '0.9343', 'Comment': "Code and models: https://github.com/voldemortX/pytorch-auto-drive, Paper: https://ojs.aaai.org/index.php/AAAI/article/view/12301"},  
+            {'Name': 'PointLaneNeti Ssl', 'TP': '63794', 'FP': '4109', 'FN': '11575', 'Precision': '0.9395', 'Recall': '0.8464', 'F1': '0.8905', 'Comment': ""},
+            {'Name': 'PolyLaneNet', 'TP': '66272', 'FP': '8302', 'FN': '9097', 'Precision': '0.8887', 'Recall': '0.8793', 'F1': '0.8840', 'Comment': "Code and models:  https://github.com/lucastabelini/PolyLaneNet."},
+            {'Name': 'PointLaneNet Base', 'TP': '64953', 'FP': '11246', 'FN': '10416', 'Precision': '0.8524', 'Recall': '0.8618', 'F1': '0.8571', 'Comment': ""},
             {'Name': 'Mean Baseline', 'TP': '917', 'FP': '82799', 'FN': '74452', 'Precision': '0.0110', 'Recall': '0.0122', 'F1': '0.0115', 'Comment': "Not useful as baseline"},
     ]
     context['keys2'] = list(context['results2'][0].keys())
