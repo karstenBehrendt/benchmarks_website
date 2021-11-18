@@ -162,11 +162,11 @@ def benchmark_splines(request):
     """ Empty entry block
             {'Name': '', 'TP': '', 'FP': '', 'FN': '', 'Precision': '', 'Recall': '', 'F1': '', 'Comment': ""},
     """
-    context['results2'] = [
-            {'Name': 'LaneAF', 'TP': '71793', 'FP': '2291', 'FN': '3576', 'Precision': '0.9691', 'Recall': '0.9526', 'F1': '0.9601', 'Comment': "Code https://github.com/sel118/LaneAF, paper http://cvrr.ucsd.edu/publications/2021/LaneAF.pdf, 10 fps"},  
+    context['results2'] = [  
             {'Name': 'RCLaneDet-L', 'TP': '71964', 'FP': '2385', 'FN': '3405', 'Precision': '0.9679', 'Recall': '0.9548', 'F1': '0.9613', 'Comment': ""},
             {'Name': 'RCLaneDet-S', 'TP': '71915', 'FP': '2458', 'FN': '3454', 'Precision': '0.9670', 'Recall': '0.9542', 'F1': '0.9605', 'Comment': ""},
             {'Name': 'RCLaneDet-M', 'TP': '71941', 'FP': '2513', 'FN': '3428', 'Precision': '0.9662', 'Recall': '0.9545', 'F1': '0.9603', 'Comment': ""},
+            {'Name': 'LaneAF', 'TP': '71793', 'FP': '2291', 'FN': '3576', 'Precision': '0.9691', 'Recall': '0.9526', 'F1': '0.9601', 'Comment': "Code https://github.com/sel118/LaneAF, paper http://cvrr.ucsd.edu/publications/2021/LaneAF.pdf, 10 fps"},
             {'Name': 'BezierLaneNet (ResNet-34)', 'TP': '71191', 'FP': '3050', 'FN': '4178', 'Precision': '0.9589', 'Recall': '0.9446', 'F1': '0.9517', 'Comment': "Code and models will be at: https://github.com/voldemortX/pytorch-auto-drive, Paper: TBD."},
             {'Name': 'SCNN VGG16', 'TP': '71425', 'FP': '3315', 'FN': '3944', 'Precision': '0.9556', 'Recall': '0.9477', 'F1': '0.9516', 'Comment': "Code and models: https://github.com/voldemortX/pytorch-auto-drive, Paper: https://ojs.aaai.org/index.php/AAAI/article/view/12301."},
             {'Name': 'BezierLaneNet (ResNet-18)', 'TP': '70946', 'FP': '3180', 'FN': '4423', 'Precision': '0.9571', 'Recall': '0.9413', 'F1': '0.9491', 'Comment': "Code and models will be at: https://github.com/voldemortX/pytorch-auto-drive, Paper: TBD."},
