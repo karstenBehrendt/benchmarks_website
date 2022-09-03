@@ -2,3 +2,5 @@
 apt-get -y install libz-dev libjpeg-dev libfreetype6-dev python-dev
 pip3 install captcha
 pip3 install django-simple-captcha
+pip3 install django-allauth
+

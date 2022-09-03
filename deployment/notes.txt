@@ -2,7 +2,12 @@ Disable directory listing for fresh webserver. Looking at you apache.
 
 Create symlinks to the datasets from /var/www/html
 
-Set BENCHMARK_KEY in /etc/profile
+Set RECAPTCHA_PUBLIC_KEY in ~/.bashrc and /etc/profile  # don't know which, didn't bother
+Set BENCHMARK_KEY in ~/.bashrc
+Set GMAIL PASSWPD in ~/.bashrc  # app pw of course
+
+e.g.,
+export RECAPTCHA_PUBLIC_KEY="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa"
 
 Restart uwsgi (note yet daemonized)
  pkill -f uwsgi & uwsgi --ini benchmarks_uwsgi.ini 
