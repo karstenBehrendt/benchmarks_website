@@ -168,6 +168,7 @@ def benchmark_splines(request):
     """
     context['results2'] = [  
             {'Name': 'RCLaneDet-L', 'TP': '71964', 'FP': '2385', 'FN': '3405', 'Precision': '0.9679', 'Recall': '0.9548', 'F1': '0.9613', 'Comment': ""},
+            {'Name': 'DALNet-ResNet18', 'TP': '71918', 'FP': '2355', 'FN': '3451', 'Precision': '0.9683', 'Recall': '0.9542', 'F1': '0.9612', 'Comment': ""},
             {'Name': 'RCLaneDet-S', 'TP': '71915', 'FP': '2458', 'FN': '3454', 'Precision': '0.9670', 'Recall': '0.9542', 'F1': '0.9605', 'Comment': ""},
             {'Name': 'RCLaneDet-M', 'TP': '71941', 'FP': '2513', 'FN': '3428', 'Precision': '0.9662', 'Recall': '0.9545', 'F1': '0.9603', 'Comment': ""},
             {'Name': 'LaneAF', 'TP': '71793', 'FP': '2291', 'FN': '3576', 'Precision': '0.9691', 'Recall': '0.9526', 'F1': '0.9601', 'Comment': "Code https://github.com/sel118/LaneAF, paper http://cvrr.ucsd.edu/publications/2021/LaneAF.pdf, 10 fps"},
