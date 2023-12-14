@@ -167,6 +167,7 @@ def benchmark_splines(request):
             {'Name': '', 'TP': '', 'FP': '', 'FN': '', 'Precision': '', 'Recall': '', 'F1': '', 'Comment': ""},
     """
     context['results2'] = [
+            {'Name': 'HGLNet(DLA-34)', 'TP': '71910', 'FP': '2220', 'FN': '3459', 'Precision': '0.9701', 'Recall': '0.9541', 'F1': '0.9620', 'Comment': "Nanjing university of science and technology"},
             {'Name': 'DALNet-ResNet34', 'TP': '71894', 'FP': '2243', 'FN': '3475', 'Precision': '0.9697', 'Recall': '0.9539', 'F1': '0.9618', 'Comment': "Dalian University of Technology; DALIAN SEASKY AUTOMATION CO., LTD."},
             {'Name': 'RCLaneDet-L', 'TP': '71964', 'FP': '2385', 'FN': '3405', 'Precision': '0.9679', 'Recall': '0.9548', 'F1': '0.9613', 'Comment': ""},
             {'Name': 'DALNet-ResNet18', 'TP': '71918', 'FP': '2355', 'FN': '3451', 'Precision': '0.9683', 'Recall': '0.9542', 'F1': '0.9612', 'Comment': "Dalian University of Technology; DALIAN SEASKY AUTOMATION CO., LTD."},
